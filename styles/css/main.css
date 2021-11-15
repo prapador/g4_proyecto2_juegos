@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap");
+h1 {
+  font-family: 'Turret Road', cursive;
+  font-weight: 400;
+  color: #f1f1f1; }
+
+p {
+  font-family: 'Turret Road', cursive;
+  font-weight: 400;
+  color: #f1f1f1; }
+
+.bg-red-primary {
+  background: #3B020D; }
+
+/* ----------------------------------------- */
+/* HEADER */
+/* ------------------------------------------*/
+.pokemon-logo {
+  max-height: 200px; }

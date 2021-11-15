@@ -1,0 +1,14 @@
+@import "./_variables";
+@import "./_fonts";
+@import "./_layout";
+
+.bg-red-primary {
+  background: $bg-red-primary;
+}  
+
+/* ----------------------------------------- */
+/* HEADER */
+/* ------------------------------------------*/
+.pokemon-logo {
+  max-height: 200px;
+}
