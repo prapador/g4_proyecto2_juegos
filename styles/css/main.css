@@ -3,13 +3,16 @@
 /* ------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@200;300;400;500;700;800&display=swap");
 h1 {
-  font-family: 'Turret Road', cursive;
+  font-family: "Turret Road", cursive;
   font-weight: 400;
   color: #f1f1f1; }
 
 p {
-  font-family: 'Turret Road', cursive;
+  font-family: "Turret Road", cursive;
   font-weight: 400; }
+
+.spacer {
+  margin-top: 50px; }
 
 .bg-red-primary {
   background: #3B020D; }
@@ -25,7 +28,7 @@ p {
 /* ------------------------------------------*/
 .login-box {
   width: 320px;
-  height: 430px;
+  height: 250px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
@@ -35,7 +38,7 @@ p {
 
 .login-title {
   display: block;
-  margin: 60px 0 20px 0;
+  margin: 10px 0 20px 0;
   color: #131313;
   text-align: center;
   text-transform: capitalize; }
@@ -87,9 +90,9 @@ p {
 .user-card {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  height: 420px;
-  padding: 20px;
+  max-width: 200px;
+  height: 320px;
+  padding: 7px;
   border: 5px solid #502727;
   border-radius: 5px;
   background: red;
@@ -110,4 +113,12 @@ p {
 /* CARD-REVERSE */
 /* ------------------------------------------*/
 .reverse-card {
-  max-width: 300px; }
+  max-width: 200px; }
+
+/* ----------------------------------------- */
+/* BATTLEFIELD */
+/* ------------------------------------------*/
+.battlefield {
+  background-image: url("../../assets/img/battlefield.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
