@@ -9,8 +9,7 @@ h1 {
 
 p {
   font-family: 'Turret Road', cursive;
-  font-weight: 400;
-  color: #f1f1f1; }
+  font-weight: 400; }
 
 .bg-red-primary {
   background: #3B020D; }
@@ -32,7 +31,7 @@ p {
   border-radius: 20px;
   background: #DD082F;
   color: #dfdfdf;
-  font-family: 'Turret Road', cursive; }
+  font-family: "Turret Road", cursive; }
 
 .login-title {
   display: block;
@@ -68,7 +67,7 @@ p {
 
 .btn-submit:hover {
   background: #ffa000;
-  transition: .8s ease; }
+  transition: 0.8s ease; }
 
 .link-login {
   display: block;
@@ -80,4 +79,28 @@ p {
 .link-login:hover {
   margin-right: -7px;
   color: #ffa000;
-  transition: .8s ease; }
+  transition: 0.8s ease; }
+
+/* ----------------------------------------- */
+/* CARD */
+/* ------------------------------------------*/
+.user-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 20px;
+  border: 5px solid #502727;
+  border-radius: 5px;
+  background: red;
+  background: linear-gradient(137deg, red 0%, #ffab00 100%); }
+
+.user-card__header {
+  display: flex;
+  justify-content: space-between; }
+
+.user-card__img {
+  align-self: center;
+  background: #151535; }
+
+.user-card__img img {
+  border: 5px solid #ffa600; }

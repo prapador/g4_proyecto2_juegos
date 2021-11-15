@@ -4,7 +4,7 @@
 
 .bg-red-primary {
   background: $bg-red-primary;
-}  
+}
 
 /* ----------------------------------------- */
 /* HEADER */
@@ -24,7 +24,7 @@
   border-radius: 20px;
   background   : $bg-red-secondary;
   color        : $text-primary1;
-  font-family  : 'Turret Road', cursive;
+  font-family  : "Turret Road", cursive;
 }
 
 .login-title {
@@ -64,7 +64,7 @@
 
 .btn-submit:hover {
   background: #ffa000;
-  transition: .8s ease;
+  transition: 0.8s ease;
 }
 
 .link-login {
@@ -78,5 +78,37 @@
 .link-login:hover {
   margin-right: -7px;
   color       : #ffa000;
-  transition  : .8s ease;
+  transition  : 0.8s ease;
+}
+
+/* ----------------------------------------- */
+/* CARD */
+/* ------------------------------------------*/
+.user-card {
+  display       : flex;
+  flex-direction: column;
+  max-width     : 300px;
+  padding       : 20px;
+  border        : 5px solid rgb(80, 39, 39);
+  border-radius : 5px;
+  background    : rgb(255, 0, 0);
+  background    : linear-gradient(
+    137deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 171, 0, 1) 100%
+  );
+}
+
+.user-card__header {
+  display        : flex;
+  justify-content: space-between;
+}
+
+.user-card__img {
+  align-self: center;
+  background: rgb(21, 21, 53);
+}
+
+.user-card__img img {
+  border: 5px solid rgb(255, 166, 0);
 }
