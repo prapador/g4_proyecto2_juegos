@@ -17,6 +17,9 @@
     <title>Proyecto 2</title>
   </head>
   <body>
+    <!-- /////////////////////////
+              HEADER
+    ////////////////////////////--> 
     <header class="bg-red-primary">
       <div class="container d-flex flex-column text-center pb-5">
         <div class="img-container">
@@ -27,6 +30,27 @@
         </h1>
       </div>
     </header>
+
+    <!-- /////////////////////////
+              FORMULARIO
+    ////////////////////////////--> 
+    <div class="login-box">
+      <h2 class="login-title">Indica tu nombre</h2>
+      <form id="form" method="POST">
+          <!-- email input -->
+          <label for="email">email</label>
+          <input type="email" name="email" id="email" class="input-field">
+
+          <!-- password input-->
+          <label for="name">Nombre</label>
+          <input type="text" name="name" id="name" class="input-field">
+          
+          <!-- submit input-->
+          <input type="button" value="login" class="btn-submit">
+      </form>
+  </div>
+
+
 
     <!-- JS Propio -->
     <script src="./js/main.js"></script>
