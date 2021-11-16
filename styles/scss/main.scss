@@ -1,7 +1,7 @@
 @import "./_variables";
-@import "./_fonts";
 @import "./_layout";
-// @import "./holo-cards";
+@import "./holo-cards";
+@import "./fonts";
 
 .bg-red-primary {
   background: $bg-red-primary;
@@ -74,15 +74,15 @@
   float          : right;
   color          : #cfd8dc;
   text-decoration: none;
-}
+} 
 
 .link-login:hover {
   margin-right: -7px;
   color       : #ffa000;
   transition  : 0.8s ease;
-}
-
-/* ----------------------------------------- */
+}   
+          
+/* ------------ ----------------------------- */
 /* CARD */
 /* ------------------------------------------*/
 // .user-card {
@@ -119,21 +119,20 @@
 /* CARD22 */
 /* ------------------------------------------*/
 .carta_player {
-  background: radial-gradient(circle, 
-  #ffffff 0%, #e29a67 50%, #d53636 100%);
-  height: 220px;
-  font-family: 'Turret Road', cursive;
+  width      : calc(159px);
+  height     : 220px;
+  height     : 220px;
+  background : radial-gradient(circle, #ffffff 0%, #e29a67 50%, #d53636 100%);
+  font-family: "Turret Road", cursive;
   font-weight: 800;
-  height: 220px;
-  width: calc(159px)
 }
 
 .pokemon-name-hp {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  display        : flex;
+  flex-direction : row;
+  align-items    : baseline;
   justify-content: space-between;
+  margin-bottom  : 10px;
 }
 
 .pokemon-container {
@@ -191,10 +190,21 @@
 
 .pokemon-card {
   max-width         : 165px;
-  margin-right      : 15px;
-  margin-bottom     : 15px;
+  margin-right      : 90px;
   padding           : 15px 15px 0 15px;
   border            : 8px solid #f9ee75;
+  border-radius     : 15px;
+  -webkit-box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow   : 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  box-shadow        : 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  text-align        : center;
+}
+  
+.card-back {
+  max-width         : 165px;
+  margin-right      : 90px;
+  padding           : 15px 15px 0 15px;
+  border            : 8px solid #0f1b5d;
   border-radius     : 15px;
   -webkit-box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow   : 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
@@ -208,38 +218,50 @@
 }
 
 .pokemon-hp {
-  color      : #c23b1f;
-  font-size  : 0.7em;
+  color    : #c23b1f;
+  font-size: 15px;
+}
+
+.pokemon-hp::before {
+  color    : #383838;
+  font-size: 10px;
+  content  : 'STATS: ';
 }
 
 .pokemon-type {
-  font-size    : 0.6em;
+  font-size: 0.6em;
 }
 
 .pokemon-id {
-  color        : darkgreen;
-  font-size    : 0.6em;
+  color    : darkgreen;
+  font-size: 15px;
 }
 
 .pokemon-type-id {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  display        : flex;
+  flex-direction : row;
+  align-items    : baseline;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top     : 10px;
 }
 
 /* ----------------------------------------- */
 /* CARD-REVERSE */
 /* ------------------------------------------*/
 .reverse-card {
-  max-width: 160px;
-  height   : 221px;
-}
+ width       : 143px;
+ height      : 204px;
+ margin-right: 90px;
+}  
 
 .reverse-card-img {
   max-width: 160px;
   height   : 221px;
+}
+
+.reverse-card-img img {
+  width : 143px;
+  height: 204px;
 }
 
 /* ----------------------------------------- */
