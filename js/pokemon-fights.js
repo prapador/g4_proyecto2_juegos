@@ -39,7 +39,7 @@ class Player {
     return this.loses;
   }
   setWins(w) {
-    return this.wins = w;
+    return (this.wins = w);
   }
   setLoses(l) {
     this.loses = l;
@@ -52,7 +52,6 @@ let pokemons_pc = [];
 var pokemons_player = [];
 var temp_player_wins = 0;
 var temp_player_losses = 0;
-
 
 /********COLORES*********/
 const elementColors = {
@@ -73,32 +72,27 @@ const elementColors = {
   dragon: ["#ffffff", "#f9fa49", "#f4c925"],
   dark: ["#ffffff", "#6c6c6c", "#000000"],
   steel: ["#ffffff", "#e6e5e5", "#8c8b8b"],
-  flying: ["#ffffff", "#f9f9f9", "#dedede"]
+  flying: ["#ffffff", "#f9f9f9", "#dedede"],
 };
 
 cargarPlayersLocal();
 
 async function generarPokemons() {
-  console.log("entro a generar pokemonS")
   for (let i = 0; i < 6; i++) {
     let posicion_pokedex = randomNumber(1, 898);
     if (i <= 2) {
       await generarPokemon(posicion_pokedex, pokemons_player);
-      console.log("paso await genero player")
     } else {
       await generarPokemon(posicion_pokedex, pokemons_pc);
-      console.log("paso await genero pc")
     }
   }
-  console.log("termino de generar")
 }
 
 async function generarPokemon(posicion_pokedex, array) {
-  console.log("entro a generar pokemoN")
   let el_pepe = "text";
   await fetch(url + posicion_pokedex)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       let generated_id = data.id;
       let generated_name = data.name.toUpperCase();
       let generated_type = data.types[0].type.name;
@@ -109,10 +103,15 @@ async function generarPokemon(posicion_pokedex, array) {
       }
       prom /= 6;
       let avg_stats = parseInt(prom);
-      el_pepe = new Pokemon(generated_id, generated_name, generated_type, avg_stats, generated_img);
+      el_pepe = new Pokemon(
+        generated_id,
+        generated_name,
+        generated_type,
+        avg_stats,
+        generated_img
+      );
     });
   array.push(el_pepe);
-  console.log("pusheo en generar pokemoN")
 }
 
 function randomNumber(min, max) {
@@ -151,13 +150,13 @@ function cargarPlayersLocal() {
     players = [];
     let players_cargados = JSON.parse(localStorage.getItem("players"));
     for (let i = 0; i < players_cargados.length; i++) {
-      players.push(parsearPlayer(players_cargados[i]))
+      players.push(parsearPlayer(players_cargados[i]));
     }
   }
 }
 
 function parsearPlayer(object) {
-  let valores = Object.values(object)
+  let valores = Object.values(object);
   let result = new Player(valores[0], valores[1], valores[2]);
   return result;
 }
@@ -198,8 +197,6 @@ let crd_fight_img_2 = document.getElementById("crd_fight_img_2");
 let crd_fight_type_2 = document.getElementById("crd_fight_type_2");
 let crd_fight_bg_2 = document.getElementById("crd_fight_bg_2");
 
-
-
 function gradientBackgroundGenerator(type) {
   switch (type) {
     case "plant":
@@ -213,33 +210,33 @@ function gradientBackgroundGenerator(type) {
     case "normal":
       return `radial-gradient(circle, ${elementColors.normal[0]} 0%, ${elementColors.normal[1]} 50%, ${elementColors.normal[2]} 100%)`;
     case "poison":
-      return `radial-gradient(circle, ${elementColors.poison[0]} 0%, ${elementColors.poison[1]} 50%, ${elementColors.poison[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.poison[0]} 0%, ${elementColors.poison[1]} 50%, ${elementColors.poison[2]} 100%)`;
     case "electric":
-      return `radial-gradient(circle, ${elementColors.electric[0]} 0%, ${elementColors.electric[1]} 50%, ${elementColors.electric[2]} 100%)`;    
+      return `radial-gradient(circle, ${elementColors.electric[0]} 0%, ${elementColors.electric[1]} 50%, ${elementColors.electric[2]} 100%)`;
     case "ground":
-      return `radial-gradient(circle, ${elementColors.ground[0]} 0%, ${elementColors.ground[1]} 50%, ${elementColors.ground[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.ground[0]} 0%, ${elementColors.ground[1]} 50%, ${elementColors.ground[2]} 100%)`;
     case "fairy":
-      return `radial-gradient(circle, ${elementColors.fairy[0]} 0%, ${elementColors.fairy[1]} 50%, ${elementColors.fairy[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.fairy[0]} 0%, ${elementColors.fairy[1]} 50%, ${elementColors.fairy[2]} 100%)`;
     case "fighting":
-      return `radial-gradient(circle, ${elementColors.fighting[0]} 0%, ${elementColors.fighting[1]} 50%, ${elementColors.fighting[2]} 100%)`;      
+      return `radial-gradient(circle, ${elementColors.fighting[0]} 0%, ${elementColors.fighting[1]} 50%, ${elementColors.fighting[2]} 100%)`;
     case "psychic":
-      return `radial-gradient(circle, ${elementColors.psychic[0]} 0%, ${elementColors.psychic[1]} 50%, ${elementColors.psychic[2]} 100%)`;      
+      return `radial-gradient(circle, ${elementColors.psychic[0]} 0%, ${elementColors.psychic[1]} 50%, ${elementColors.psychic[2]} 100%)`;
     case "rock":
-      return `radial-gradient(circle, ${elementColors.rock[0]} 0%, ${elementColors.rock[1]} 50%, ${elementColors.rock[2]} 100%)`;      
+      return `radial-gradient(circle, ${elementColors.rock[0]} 0%, ${elementColors.rock[1]} 50%, ${elementColors.rock[2]} 100%)`;
     case "ghost":
-      return `radial-gradient(circle, ${elementColors.ghost[0]} 0%, ${elementColors.ghost[1]} 50%, ${elementColors.ghost[2]} 100%)`      
+      return `radial-gradient(circle, ${elementColors.ghost[0]} 0%, ${elementColors.ghost[1]} 50%, ${elementColors.ghost[2]} 100%)`;
     case "ice":
-      return `radial-gradient(circle, ${elementColors.ice[0]} 0%, ${elementColors.ice[1]} 50%, ${elementColors.ice[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.ice[0]} 0%, ${elementColors.ice[1]} 50%, ${elementColors.ice[2]} 100%)`;
     case "dragon":
-      return `radial-gradient(circle, ${elementColors.dragon[0]} 0%, ${elementColors.dragon[1]} 50%, ${elementColors.dragon[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.dragon[0]} 0%, ${elementColors.dragon[1]} 50%, ${elementColors.dragon[2]} 100%)`;
     case "dark":
-      return `radial-gradient(circle, ${elementColors.dark[0]} 0%, ${elementColors.dark[1]} 50%, ${elementColors.dark[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.dark[0]} 0%, ${elementColors.dark[1]} 50%, ${elementColors.dark[2]} 100%)`;
     case "steel":
-      return `radial-gradient(circle, ${elementColors.steel[0]} 0%, ${elementColors.steel[1]} 50%, ${elementColors.steel[2]} 100%)`;     
+      return `radial-gradient(circle, ${elementColors.steel[0]} 0%, ${elementColors.steel[1]} 50%, ${elementColors.steel[2]} 100%)`;
     case "flying":
       return `radial-gradient(circle, ${elementColors.flying[0]} 0%, ${elementColors.flying[1]} 50%, ${elementColors.flying[2]} 100%)`;
   }
-};
+}
 
 function asignarPlayerCards() {
   crd_plyr_id_1.innerHTML = `${pokemons_player[0].getId()}`;
@@ -247,43 +244,51 @@ function asignarPlayerCards() {
   crd_plyr_stats_1.innerHTML = `${pokemons_player[0].getStats()}`;
   crd_plyr_img_1.src = `${pokemons_player[0].getImg()}`;
   crd_plyr_type_1.innerHTML = `${pokemons_player[0].getType()}`;
-  crd_plyr_bg_1.style.background = gradientBackgroundGenerator(pokemons_player[0].getType());
+  crd_plyr_bg_1.style.background = gradientBackgroundGenerator(
+    pokemons_player[0].getType()
+  );
 
   crd_plyr_id_2.innerHTML = `${pokemons_player[1].getId()}`;
   crd_plyr_name_2.innerHTML = `${pokemons_player[1].getName()}`;
   crd_plyr_stats_2.innerHTML = `${pokemons_player[1].getStats()}`;
   crd_plyr_img_2.src = `${pokemons_player[1].getImg()}`;
   crd_plyr_type_2.innerHTML = `${pokemons_player[1].getType()}`;
-  crd_plyr_bg_2.style.background = gradientBackgroundGenerator(pokemons_player[1].getType());
+  crd_plyr_bg_2.style.background = gradientBackgroundGenerator(
+    pokemons_player[1].getType()
+  );
 
   crd_plyr_id_3.innerHTML = `${pokemons_player[2].getId()}`;
   crd_plyr_name_3.innerHTML = `${pokemons_player[2].getName()}`;
   crd_plyr_stats_3.innerHTML = `${pokemons_player[2].getStats()}`;
   crd_plyr_img_3.src = `${pokemons_player[2].getImg()}`;
   crd_plyr_type_3.innerHTML = `${pokemons_player[2].getType()}`;
-  crd_plyr_bg_3.style.background = gradientBackgroundGenerator(pokemons_player[2].getType());
+  crd_plyr_bg_3.style.background = gradientBackgroundGenerator(
+    pokemons_player[2].getType()
+  );
 }
 
-function asignarBattleCards(index){
+function asignarBattleCards(index) {
   crd_fight_id_1.innerHTML = `${pokemons_player[index].getId()}`;
   crd_fight_name_1.innerHTML = `${pokemons_player[index].getName()}`;
   crd_fight_stats_1.innerHTML = `${pokemons_player[index].getStats()}`;
   crd_fight_img_1.src = `${pokemons_player[index].getImg()}`;
   crd_fight_type_1.innerHTML = `${pokemons_player[index].getType()}`;
-  crd_fight_bg_1.style.background = gradientBackgroundGenerator(pokemons_player[index].getType());
+  crd_fight_bg_1.style.background = gradientBackgroundGenerator(
+    pokemons_player[index].getType()
+  );
 
   crd_fight_id_2.innerHTML = `${pokemons_pc[index].getId()}`;
   crd_fight_name_2.innerHTML = `${pokemons_pc[index].getName()}`;
   crd_fight_stats_2.innerHTML = `${pokemons_pc[index].getStats()}`;
   crd_fight_img_2.src = `${pokemons_pc[index].getImg()}`;
   crd_fight_type_2.innerHTML = `${pokemons_pc[index].getType()}`;
-  crd_fight_bg_2.style.background = gradientBackgroundGenerator(pokemons_pc[index].getType());
+  crd_fight_bg_2.style.background = gradientBackgroundGenerator(
+    pokemons_pc[index].getType()
+  );
 }
 
-
-
 function combatirPokemos(index) {
-  console.log()
+  console.log();
   let poke_player = pokemons_player[index];
   let poke_pc = pokemons_pc[index];
   let poke_player_power = poke_player.getStats();
@@ -291,15 +296,19 @@ function combatirPokemos(index) {
   let poke_player_type = poke_player.getType();
   let poke_pc_type = poke_pc.getType();
 
-  console.log(poke_player_power, poke_player_type, " VS ", poke_pc_power, poke_pc_type);
+  console.log(
+    poke_player_power,
+    poke_player_type,
+    " VS ",
+    poke_pc_power,
+    poke_pc_type
+  );
 
   if (esDebil(poke_player_type, poke_pc_type)) {
-
     poke_player_power = poke_player_power * 0.75;
     console.log("player es debil");
   }
   if (esDebil(poke_pc_type, poke_player_type)) {
-
     poke_pc_power = poke_pc_power * 0.75;
     console.log("pc es debil");
   }
@@ -309,7 +318,7 @@ function combatirPokemos(index) {
   if (poke_player_power < poke_pc_power) {
     temp_player_losses++;
   }
-  console.log("V", temp_player_wins, "D", temp_player_losses)
+  console.log("V", temp_player_wins, "D", temp_player_losses);
 }
 
 function esDebil(a, b) {
@@ -331,7 +340,13 @@ function esDebil(a, b) {
       }
       break;
     case "plant":
-      if (b == "fire" || b == "ice" || b == "poison" || b == "flying" || b == "bug") {
+      if (
+        b == "fire" ||
+        b == "ice" ||
+        b == "poison" ||
+        b == "flying" ||
+        b == "bug"
+      ) {
         ret = true;
       }
       break;
@@ -376,7 +391,13 @@ function esDebil(a, b) {
       }
       break;
     case "rock":
-      if (b == "water" || b == "plant" || b == "fighting" || b == "tierra" || b == "steel") {
+      if (
+        b == "water" ||
+        b == "plant" ||
+        b == "fighting" ||
+        b == "tierra" ||
+        b == "steel"
+      ) {
         ret = true;
       }
       break;
@@ -416,7 +437,6 @@ async function battleScreen() {
 }
 
 battleScreen();
-
 
 /************LOGICA*************/
 /*
@@ -472,3 +492,74 @@ salir -- > call juegos
 
 
 */
+
+/* ----------------------------------------- */
+/* SERGIO */
+/* ------------------------------------------*/
+// SCREEN-1
+const submitButtonUI = document.getElementById("submit-button");
+const headerUI = document.getElementById("header-poke");
+const loginBoxUI = document.getElementById("login-box");
+
+// SCREEN- 2
+const battlefieldUI = document.getElementById("battlefield");
+const cardFight1 = document.getElementById("crd_fight_bg_1");
+const cardFight2 = document.getElementById("crd_fight_bg_2");
+const triggerBattle = document.getElementById("triggerBattle");
+const throwCard = document.getElementById("triggerthrow");
+
+// SCREEN- 3
+const buttonresultsUI = document.getElementById("triggerResults");
+const results = document.getElementById("results");
+
+submitButtonUI.addEventListener("click", (e) => {
+  e.preventDefault();
+  headerUI.classList.add("animate__animated", "animate__fadeOut", "slow");
+
+  setTimeout(() => {
+    showField();
+  }, 2000);
+});
+
+function showField() {
+  headerUI.classList.add("d-none");
+  battlefieldUI.classList.add("animate__animated", "animate__fadeIn", "slow");
+  battlefieldUI.classList.remove("d-none");
+}
+
+buttonresultsUI.addEventListener("click", (e) => {
+  e.preventDefault();
+  showResults();
+});
+
+function showResults() {
+  battlefieldUI.classList.add("d-none");
+  results.classList.remove("d-none");
+}
+
+triggerBattle.addEventListener("click", (e) => {
+  e.preventDefault();
+  battleOn();
+});
+
+async function battleOn() {
+  let promesa1 = new Promise((resolve) => {
+    cardFight1.classList.add("animate__animated", "animate__shakeX");
+    cardFight2.classList.add("animate__animated", "animate__shakeY");
+
+    setTimeout(function pepe() {
+      resolve();
+    }, 2000);
+  });
+  promesa1.then(() => {
+    cardFight1.classList.remove("animate__animated", "animate__shakeX");
+    cardFight2.classList.remove("animate__animated", "animate__shakeY");
+    cardFight1.classList.add("animate__animated", "animate__shakeY");
+    cardFight2.classList.add("animate__animated", "animate__shakeX");
+  })
+}
+
+function battleOff() {
+  cardFight1.classList.remove("animate__animated", "animate__shakeY");
+  cardFight2.classList.remove("animate__animated", "animate__shakeX");
+}

@@ -1,6 +1,6 @@
 @import "./_variables";
 @import "./_layout";
-@import "./holo-cards";
+// @import "./holo-cards";
 @import "./fonts";
 
 .bg-red-primary {
@@ -12,6 +12,10 @@
 /* ------------------------------------------*/
 .pokemon-logo {
   max-height: 200px;
+}
+
+.header-poke {
+  min-height: 100vh;
 }
 
 /* ----------------------------------------- */

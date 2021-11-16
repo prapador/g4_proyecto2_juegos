@@ -7,6 +7,13 @@
 
     <!-- Estilos Propios -->
     <link rel="stylesheet" href="./styles/css/main.css" />
+
+    <!-- transiciones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -20,7 +27,7 @@
     <!-- /////////////////////////
               HEADER
     ////////////////////////////-->
-    <header class="bg-red-primary">
+    <header class="bg-red-primary header-poke" id="header-poke">
       <div class="container d-flex flex-column text-center pb-5">
         <div class="img-container">
           <img
@@ -31,26 +38,32 @@
         </div>
         <h1>Bienvenido entrenador</h1>
       </div>
+
+      <!-- /////////////////////////
+              FORMULARIO
+    ////////////////////////////-->
+      <div class="login-box" id="login-box">
+        <h2 class="login-title">Indica tu nombre</h2>
+        <form id="form" method="POST">
+          <!-- name input-->
+          <label for="name">Nombre</label>
+          <input type="text" name="name" id="name" class="input-field" />
+
+          <!-- submit input-->
+          <input
+            type="button"
+            value="login"
+            class="btn-submit"
+            id="submit-button"
+          />
+        </form>
+      </div>
     </header>
 
     <!-- /////////////////////////
-              FORMULARIO
-    ////////////////////////////-->
-    <div class="login-box">
-      <h2 class="login-title">Indica tu nombre</h2>
-      <form id="form" method="POST">
-        <!-- name input-->
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" class="input-field" />
-
-        <!-- submit input-->
-        <input type="button" value="login" class="btn-submit" />
-      </form>
-    </div>
-    <!-- /////////////////////////
               BATTLEFIELD
     ////////////////////////////-->
-    <div class="battlefield">
+    <div class="battlefield d-none" id="battlefield">
       <div class="container">
         <!-- COMPUTER-FIELD -->
         <div class="computer-field">
@@ -128,10 +141,7 @@
                   <span class="pokemon-id" id="crd_plyr_id_1">8</span>
                 </div>
                 <div class="imageContainer">
-                  <img
-                    id="crd_plyr_img_1"
-                    style="width: 120px"
-                  />
+                  <img id="crd_plyr_img_1" style="width: 120px" />
                 </div>
                 <div class="pokemon-type-id">
                   <span class="pokemon-hp" id="crd_plyr_stats_1">120</span>
@@ -149,10 +159,7 @@
                   <span class="pokemon-id" id="crd_plyr_id_2">8</span>
                 </div>
                 <div class="imageContainer">
-                  <img
-                    id="crd_plyr_img_2"
-                    style="width: 120px"
-                  />
+                  <img id="crd_plyr_img_2" style="width: 120px" />
                 </div>
                 <div class="pokemon-type-id">
                   <span class="pokemon-hp" id="crd_plyr_stats_2">120</span>
@@ -171,7 +178,7 @@
                 </div>
                 <div class="imageContainer">
                   <img
-                  id="crd_plyr_img_3"
+                    id="crd_plyr_img_3"
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
                     style="width: 120px"
                   />
@@ -184,6 +191,51 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="button" id="triggerResults">
+      trigger Results
+    </button>
+
+    <button class="btn btn-primary" type="button" id="triggerthrow">
+      trigger Throw
+    </button>
+
+    <button class="btn btn-primary" type="button" id="triggerBattle">
+      trigger Battle
+    </button>
+    <div class="container">
+      <div class="results d-none" id="results">
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Victorias</th>
+              <th scope="col">Derrotas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
