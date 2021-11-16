@@ -280,14 +280,19 @@ p {
 
 .pokemon-hp {
   color: #c23b1f;
-  font-size: 0.7em; }
+  font-size: 15px; }
+
+.pokemon-hp::before {
+  color: #383838;
+  font-size: 10px;
+  content: 'STATS: '; }
 
 .pokemon-type {
   font-size: 0.6em; }
 
 .pokemon-id {
   color: darkgreen;
-  font-size: 0.6em; }
+  font-size: 15px; }
 
 .pokemon-type-id {
   display: flex;
@@ -300,7 +305,7 @@ p {
 /* CARD-REVERSE */
 /* ------------------------------------------*/
 .reverse-card {
-  max-width: 160px;
+  width: 160px;
   height: 221px;
   margin-right: 90px; }
 
