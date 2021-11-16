@@ -1,0 +1,252 @@
+@import "./_variables";
+@import "./_fonts";
+@import "./_layout";
+// @import "./holo-cards";
+
+.bg-red-primary {
+  background: $bg-red-primary;
+}
+
+/* ----------------------------------------- */
+/* HEADER */
+/* ------------------------------------------*/
+.pokemon-logo {
+  max-height: 200px;
+}
+
+/* ----------------------------------------- */
+/* FORMULARIO */
+/* ------------------------------------------*/
+.login-box {
+  width        : 320px;
+  height       : 250px;
+  margin       : 0 auto;
+  padding      : 20px;
+  border-radius: 20px;
+  background   : $bg-red-secondary;
+  color        : $text-primary1;
+  font-family  : "Turret Road", cursive;
+}
+
+.login-title {
+  display       : block;
+  margin        : 10px 0 20px 0;
+  color         : $text-secondary;
+  text-align    : center;
+  text-transform: capitalize;
+}
+
+.input-field {
+  box-sizing   : border-box;
+  width        : 100%;
+  height       : 40px;
+  margin       : 0 0 20px 0;
+  border       : none;
+  border-bottom: 1px solid #cfd8dc;
+  outline      : none;
+  background   : none;
+  color        : #cfd8dc;
+}
+
+.btn-submit {
+  width         : 100%;
+  height        : 40px;
+  margin        : 20px 0;
+  border        : none;
+  border-radius : 20px;
+  outline       : none;
+  background    : $text-amarillo;
+  color         : $text-secondary;
+  font-size     : 17px;
+  font-weight   : bold;
+  text-transform: capitalize;
+  cursor        : pointer;
+}
+
+.btn-submit:hover {
+  background: #ffa000;
+  transition: 0.8s ease;
+}
+
+.link-login {
+  display        : block;
+  margin         : 10px 0;
+  float          : right;
+  color          : #cfd8dc;
+  text-decoration: none;
+}
+
+.link-login:hover {
+  margin-right: -7px;
+  color       : #ffa000;
+  transition  : 0.8s ease;
+}
+
+/* ----------------------------------------- */
+/* CARD */
+/* ------------------------------------------*/
+// .user-card {
+//   display       : flex;
+//   flex-direction: column;
+//   max-width     : 160px;
+//   height        : 220px;
+//   padding       : 7px;
+//   border        : 5px solid rgb(80, 39, 39);
+//   border-radius : 5px;
+//   background    : rgb(255, 0, 0);
+//   background    : linear-gradient(
+//     137deg,
+//     rgba(255, 0, 0, 1) 0%,
+//     rgba(255, 171, 0, 1) 100%
+//   );
+// }
+
+// .user-card__header {
+//   display        : flex;
+//   justify-content: space-between;
+// }
+
+// .user-card__img {
+//   align-self: center;
+//   background: rgb(21, 21, 53);
+// }
+
+// .user-card__img img {
+//   border: 5px solid rgb(255, 166, 0);
+// }
+
+/* ----------------------------------------- */
+/* CARD22 */
+/* ------------------------------------------*/
+.carta_player {
+  background: radial-gradient(circle, 
+  #ffffff 0%, #e29a67 50%, #d53636 100%);
+  height: 220px;
+  font-family: 'Turret Road', cursive;
+  font-weight: 800;
+  height: 220px;
+  width: calc(159px)
+}
+
+.pokemon-name-hp {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.pokemon-container {
+  display            : flex;
+  flex-wrap          : wrap;
+  align-items        : space-between;
+  justify-content    : center;
+  max-width          : 1200px;
+  margin             : 0 auto;
+  -webkit-perspective: 100000;
+  perspective        : 100000;
+}
+
+.pokemon-container .pokemon-card.flipped {
+  -webkit-transform: rotatey(-180deg);
+  transform        : rotatey(-180deg);
+}
+
+.pokemon-container .pokemon-card {
+  width                  : 100%;
+  height                 : 100%;
+  transform-style        : preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition             : 0.5s;
+  -webkit-transition     : 0.35s;
+}
+
+.pokemon-container .pokemon-card .face {
+  z-index                    : 2;
+  width                      : 100%;
+  height                     : 210px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility        : hidden;
+}
+
+.pokemon-container .pokemon-card .front {
+  z-index: 1;
+  cursor : pointer;
+}
+
+.pokemon-container .pokemon-card .back {
+  -webkit-transform: rotatey(-180deg);
+  transform        : rotatey(-180deg);
+  cursor           : pointer;
+}
+
+.back img {
+  /* 	position:relative; */
+  /* 	top: -20px; */
+  width  : 100%;
+  height : 240px;
+  margin : 0;
+  padding: 0;
+}
+
+.pokemon-card {
+  max-width         : 165px;
+  margin-right      : 15px;
+  margin-bottom     : 15px;
+  padding           : 15px 15px 0 15px;
+  border            : 8px solid #f9ee75;
+  border-radius     : 15px;
+  -webkit-box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow   : 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  box-shadow        : 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
+  text-align        : center;
+}
+
+.imageContainer {
+  border-radius   : 50%;
+  background-color: beige;
+}
+
+.pokemon-hp {
+  color      : #c23b1f;
+  font-size  : 0.7em;
+}
+
+.pokemon-type {
+  font-size    : 0.6em;
+}
+
+.pokemon-id {
+  color        : darkgreen;
+  font-size    : 0.6em;
+}
+
+.pokemon-type-id {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* ----------------------------------------- */
+/* CARD-REVERSE */
+/* ------------------------------------------*/
+.reverse-card {
+  max-width: 160px;
+  height   : 221px;
+}
+
+.reverse-card-img {
+  max-width: 160px;
+  height   : 221px;
+}
+
+/* ----------------------------------------- */
+/* BATTLEFIELD */
+/* ------------------------------------------*/
+.battlefield {
+  background-image : url("../../assets/img/battlefield.jpg");
+  background-repeat: no-repeat;
+  background-size  : cover;
+}
