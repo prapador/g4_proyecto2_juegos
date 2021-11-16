@@ -383,8 +383,8 @@ p {
 .user-card {
   display: flex;
   flex-direction: column;
-  max-width: 200px;
-  height: 320px;
+  max-width: 160px;
+  height: 220px;
   padding: 7px;
   border: 5px solid #502727;
   border-radius: 5px;
@@ -406,7 +406,12 @@ p {
 /* CARD-REVERSE */
 /* ------------------------------------------*/
 .reverse-card {
-  max-width: 200px; }
+  max-width: 160px;
+  height: 221px; }
+
+.reverse-card-img {
+  max-width: 160px;
+  height: 221px; }
 
 /* ----------------------------------------- */
 /* BATTLEFIELD */
