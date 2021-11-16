@@ -1,7 +1,7 @@
 @import "./_variables";
-@import "./_fonts";
 @import "./_layout";
-// @import "./holo-cards";
+@import "./holo-cards";
+@import "./fonts"; 
 
 .bg-red-primary {
   background: $bg-red-primary;
@@ -121,18 +121,18 @@
 .carta_player {
   background: radial-gradient(circle, 
   #ffffff 0%, #e29a67 50%, #d53636 100%);
-  height: 220px;
+  height     : 220px;
   font-family: 'Turret Road', cursive;
   font-weight: 800;
-  height: 220px;
-  width: calc(159px)
+  height     : 220px;
+  width      : calc(159px)
 }
 
 .pokemon-name-hp {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  margin-bottom  : 10px;
+  display        : flex;
+  flex-direction : row;
+  align-items    : baseline;
   justify-content: space-between;
 }
 
@@ -188,11 +188,10 @@
   margin : 0;
   padding: 0;
 }
-
+ 
 .pokemon-card {
   max-width         : 165px;
-  margin-right      : 15px;
-  margin-bottom     : 15px;
+  margin-right      : 90px;
   padding           : 15px 15px 0 15px;
   border            : 8px solid #f9ee75;
   border-radius     : 15px;
@@ -208,25 +207,25 @@
 }
 
 .pokemon-hp {
-  color      : #c23b1f;
-  font-size  : 0.7em;
+  color    : #c23b1f;
+  font-size: 0.7em;
 }
 
 .pokemon-type {
-  font-size    : 0.6em;
+  font-size: 0.6em;
 }
 
 .pokemon-id {
-  color        : darkgreen;
-  font-size    : 0.6em;
+  color    : darkgreen;
+  font-size: 0.6em;
 }
 
 .pokemon-type-id {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  display        : flex;
+  flex-direction : row;
+  align-items    : baseline;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top     : 10px;
 }
 
 /* ----------------------------------------- */
@@ -235,6 +234,7 @@
 .reverse-card {
   max-width: 160px;
   height   : 221px;
+  margin-right: 90px;
 }
 
 .reverse-card-img {
