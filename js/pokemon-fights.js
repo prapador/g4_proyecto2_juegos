@@ -53,6 +53,29 @@ var pokemons_player = [];
 var temp_player_wins = 0;
 var temp_player_losses = 0;
 
+
+/********COLORES*********/
+const elementColors = {
+  plant: ["#ffffff", "#b6dfa5", "#7cd57a"],
+  fire: ["#ffffff", "#e29a67", "#d53636"],
+  water: ["#ffffff", "#a5c7df", "#7aacd5"],
+  bug: ["#ffffff", "#d1dfa5", "#c2d57a"],
+  normal: ["#ffffff", "#dfcda5", "#d5bd7a"],
+  poison: ["#ffffff", "#b4a5df", "#807ad5"],
+  electric: ["#ffffff", "#f6fb9f", "#fbff56"],
+  ground: ["#ffffff", "#bbad8c", "#b9976b"],
+  fairy: ["#ffffff", "#daa5df", "#d07ad5"],
+  fighting: ["#ffffff", "#e2d067", "#d56f36"],
+  psychic: ["#ffffff", "#a567e2", "#8036d5"],
+  rock: ["#ffffff", "#ebb04f", "#a36d2c"],
+  ghost: ["#ffffff", "#ba95df", "#9965d2"],
+  ice: ["#ffffff", "#d8f3fa", "#7cd7f9"],
+  dragon: ["#ffffff", "#f9fa49", "#f4c925"],
+  dark: ["#ffffff", "#6c6c6c", "#000000"],
+  steel: ["#ffffff", "#e6e5e5", "#8c8b8b"],
+  flying: ["#ffffff", "#f9f9f9", "#dedede"]
+};
+
 cargarPlayersLocal();
 
 async function generarPokemons() {
@@ -67,6 +90,7 @@ async function generarPokemons() {
       console.log("paso await genero pc")
     }
   }
+  console.log("termino de generar")
 }
 
 async function generarPokemon(posicion_pokedex, array) {
@@ -137,119 +161,138 @@ function parsearPlayer(object) {
   let result = new Player(valores[0], valores[1], valores[2]);
   return result;
 }
-/*
-let player_name_1 = document.getElementById("player_name_1");
-let player_stats_1 = document.getElementById("player_stats_1");
-let player_img_1 = document.getElementById("player_img_1");
-let player_type_1 = document.getElementById("player_type_1");
 
-let player_name_2 = document.getElementById("player_name_2");
-let player_stats_2 = document.getElementById("player_stats_2");
-let player_img_2 = document.getElementById("player_img_2");
-let player_type_2 = document.getElementById("player_type_2");
+/******************ATRIBUCION******************/
+let crd_plyr_id_1 = document.getElementById("crd_plyr_id_1");
+let crd_plyr_name_1 = document.getElementById("crd_plyr_name_1");
+let crd_plyr_stats_1 = document.getElementById("crd_plyr_stats_1");
+let crd_plyr_img_1 = document.getElementById("crd_plyr_img_1");
+let crd_plyr_type_1 = document.getElementById("crd_plyr_type_1");
+let crd_plyr_bg_1 = document.getElementById("crd_plyr_bg_1");
 
-let player_name_3 = document.getElementById("player_name_3");
-let player_stats_3 = document.getElementById("player_stats_3");
-let player_img_3 = document.getElementById("player_img_3");
-let player_type_3 = document.getElementById("player_type_3");*/
+let crd_plyr_id_2 = document.getElementById("crd_plyr_id_2");
+let crd_plyr_name_2 = document.getElementById("crd_plyr_name_2");
+let crd_plyr_stats_2 = document.getElementById("crd_plyr_stats_2");
+let crd_plyr_img_2 = document.getElementById("crd_plyr_img_2");
+let crd_plyr_type_2 = document.getElementById("crd_plyr_type_2");
+let crd_plyr_bg_2 = document.getElementById("crd_plyr_bg_2");
 
-const changeCardColor = (card, type) => {
+let crd_plyr_id_3 = document.getElementById("crd_plyr_id_3");
+let crd_plyr_name_3 = document.getElementById("crd_plyr_name_3");
+let crd_plyr_stats_3 = document.getElementById("crd_plyr_stats_3");
+let crd_plyr_img_3 = document.getElementById("crd_plyr_img_3");
+let crd_plyr_type_3 = document.getElementById("crd_plyr_type_3");
+let crd_plyr_bg_3 = document.getElementById("crd_plyr_bg_3");
+
+let crd_fight_id_1 = document.getElementById("crd_fight_id_1");
+let crd_fight_name_1 = document.getElementById("crd_fight_name_1");
+let crd_fight_stats_1 = document.getElementById("crd_fight_stats_1");
+let crd_fight_img_1 = document.getElementById("crd_fight_img_1");
+let crd_fight_type_1 = document.getElementById("crd_fight_type_1");
+let crd_fight_bg_1 = document.getElementById("crd_fight_bg_1");
+
+let crd_fight_id_2 = document.getElementById("crd_fight_id_2");
+let crd_fight_name_2 = document.getElementById("crd_fight_name_2");
+let crd_fight_stats_2 = document.getElementById("crd_fight_stats_2");
+let crd_fight_img_2 = document.getElementById("crd_fight_img_2");
+let crd_fight_type_2 = document.getElementById("crd_fight_type_2");
+let crd_fight_bg_2 = document.getElementById("crd_fight_bg_2");
+
+
+
+function gradientBackgroundGenerator(type) {
   switch (type) {
     case "plant":
-      card.style.background = `radial-gradient(circle, ${elementColors.plant[0]} 0%, ${elementColors.plant[1]} 50%, ${elementColors.plant[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.plant[0]} 0%, ${elementColors.plant[1]} 50%, ${elementColors.plant[2]} 100%)`;
     case "fire":
-      card.style.background = `radial-gradient(circle, ${elementColors.fire[0]} 0%, ${elementColors.fire[1]} 50%, ${elementColors.fire[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.fire[0]} 0%, ${elementColors.fire[1]} 50%, ${elementColors.fire[2]} 100%)`;
     case "water":
-      card.style.background = `radial-gradient(circle, ${elementColors.water[0]} 0%, ${elementColors.water[1]} 50%, ${elementColors.water[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.water[0]} 0%, ${elementColors.water[1]} 50%, ${elementColors.water[2]} 100%)`;
     case "bug":
-      card.style.background = `radial-gradient(circle, ${elementColors.bug[0]} 0%, ${elementColors.bug[1]} 50%, ${elementColors.bug[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.bug[0]} 0%, ${elementColors.bug[1]} 50%, ${elementColors.bug[2]} 100%)`;
     case "normal":
-      card.style.background = `radial-gradient(circle, ${elementColors.normal[0]} 0%, ${elementColors.normal[1]} 50%, ${elementColors.normal[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.normal[0]} 0%, ${elementColors.normal[1]} 50%, ${elementColors.normal[2]} 100%)`;
     case "poison":
-      card.style.background = `radial-gradient(circle, ${elementColors.poison[0]} 0%, ${elementColors.poison[1]} 50%, ${elementColors.poison[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.poison[0]} 0%, ${elementColors.poison[1]} 50%, ${elementColors.poison[2]} 100%)`;     
     case "electric":
-      card.style.background = `radial-gradient(circle, ${elementColors.electric[0]} 0%, ${elementColors.electric[1]} 50%, ${elementColors.electric[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.electric[0]} 0%, ${elementColors.electric[1]} 50%, ${elementColors.electric[2]} 100%)`;    
     case "ground":
-      card.style.background = `radial-gradient(circle, ${elementColors.ground[0]} 0%, ${elementColors.ground[1]} 50%, ${elementColors.ground[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.ground[0]} 0%, ${elementColors.ground[1]} 50%, ${elementColors.ground[2]} 100%)`;     
     case "fairy":
-      card.style.background = `radial-gradient(circle, ${elementColors.fairy[0]} 0%, ${elementColors.fairy[1]} 50%, ${elementColors.fairy[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.fairy[0]} 0%, ${elementColors.fairy[1]} 50%, ${elementColors.fairy[2]} 100%)`;     
     case "fighting":
-      card.style.background = `radial-gradient(circle, ${elementColors.fighting[0]} 0%, ${elementColors.fighting[1]} 50%, ${elementColors.fighting[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.fighting[0]} 0%, ${elementColors.fighting[1]} 50%, ${elementColors.fighting[2]} 100%)`;      
     case "psychic":
-      card.style.background = `radial-gradient(circle, ${elementColors.psychic[0]} 0%, ${elementColors.psychic[1]} 50%, ${elementColors.psychic[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.psychic[0]} 0%, ${elementColors.psychic[1]} 50%, ${elementColors.psychic[2]} 100%)`;      
     case "rock":
-      card.style.background = `radial-gradient(circle, ${elementColors.rock[0]} 0%, ${elementColors.rock[1]} 50%, ${elementColors.rock[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.rock[0]} 0%, ${elementColors.rock[1]} 50%, ${elementColors.rock[2]} 100%)`;      
     case "ghost":
-      card.style.background = `radial-gradient(circle, ${elementColors.ghost[0]} 0%, ${elementColors.ghost[1]} 50%, ${elementColors.ghost[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.ghost[0]} 0%, ${elementColors.ghost[1]} 50%, ${elementColors.ghost[2]} 100%)`      
     case "ice":
-      card.style.background = `radial-gradient(circle, ${elementColors.ice[0]} 0%, ${elementColors.ice[1]} 50%, ${elementColors.ice[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.ice[0]} 0%, ${elementColors.ice[1]} 50%, ${elementColors.ice[2]} 100%)`;     
     case "dragon":
-      card.style.background = `radial-gradient(circle, ${elementColors.dragon[0]} 0%, ${elementColors.dragon[1]} 50%, ${elementColors.dragon[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.dragon[0]} 0%, ${elementColors.dragon[1]} 50%, ${elementColors.dragon[2]} 100%)`;     
     case "dark":
-      card.style.background = `radial-gradient(circle, ${elementColors.dark[0]} 0%, ${elementColors.dark[1]} 50%, ${elementColors.dark[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.dark[0]} 0%, ${elementColors.dark[1]} 50%, ${elementColors.dark[2]} 100%)`;     
     case "steel":
-      card.style.background = `radial-gradient(circle, ${elementColors.steel[0]} 0%, ${elementColors.steel[1]} 50%, ${elementColors.steel[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.steel[0]} 0%, ${elementColors.steel[1]} 50%, ${elementColors.steel[2]} 100%)`;     
     case "flying":
-      card.style.background = `radial-gradient(circle, ${elementColors.flying[0]} 0%, ${elementColors.flying[1]} 50%, ${elementColors.flying[2]} 100%)`;
-      break;
+      return `radial-gradient(circle, ${elementColors.flying[0]} 0%, ${elementColors.flying[1]} 50%, ${elementColors.flying[2]} 100%)`;
   }
 };
 
-async function asignarPlayerCards() {
-  await generarPokemons();
-  /*
-    player_name_1.innerHTML = `${pokemons_player[0].getName()}`;
-    player_stats_1.innerHTML = `${pokemons_player[0].getStats()}`;
-    player_img_1.src = `${pokemons_player[0].getImg()}`;
-    player_type_1.innerHTML = `${pokemons_player[0].getType()}`;
+function asignarPlayerCards() {
+  crd_plyr_id_1.innerHTML = `${pokemons_player[0].getId()}`;
+  crd_plyr_name_1.innerHTML = `${pokemons_player[0].getName()}`;
+  crd_plyr_stats_1.innerHTML = `${pokemons_player[0].getStats()}`;
+  crd_plyr_img_1.src = `${pokemons_player[0].getImg()}`;
+  crd_plyr_type_1.innerHTML = `${pokemons_player[0].getType()}`;
+  crd_plyr_bg_1.style.background = gradientBackgroundGenerator(pokemons_player[0].getType());
 
-    player_name_2.innerHTML = `${pokemons_player[1].getName()}`;
-    player_stats_2.innerHTML = `${pokemons_player[1].getStats()}`;
-    player_img_2.src = `${pokemons_player[1].getImg()}`;
-    player_type_2.innerHTML = `${pokemons_player[1].getType()}`;
+  crd_plyr_id_2.innerHTML = `${pokemons_player[1].getId()}`;
+  crd_plyr_name_2.innerHTML = `${pokemons_player[1].getName()}`;
+  crd_plyr_stats_2.innerHTML = `${pokemons_player[1].getStats()}`;
+  crd_plyr_img_2.src = `${pokemons_player[1].getImg()}`;
+  crd_plyr_type_2.innerHTML = `${pokemons_player[1].getType()}`;
+  crd_plyr_bg_2.style.background = gradientBackgroundGenerator(pokemons_player[1].getType());
 
-    player_name_3.innerHTML = `${pokemons_player[2].getName()}`;
-    player_stats_3.innerHTML = `${pokemons_player[2].getStats()}`;
-    player_img_3.src = `${pokemons_player[2].getImg()}`;
-    player_type_3.innerHTML = `${pokemons_player[2].getType()}`;*/
+  crd_plyr_id_3.innerHTML = `${pokemons_player[2].getId()}`;
+  crd_plyr_name_3.innerHTML = `${pokemons_player[2].getName()}`;
+  crd_plyr_stats_3.innerHTML = `${pokemons_player[2].getStats()}`;
+  crd_plyr_img_3.src = `${pokemons_player[2].getImg()}`;
+  crd_plyr_type_3.innerHTML = `${pokemons_player[2].getType()}`;
+  crd_plyr_bg_3.style.background = gradientBackgroundGenerator(pokemons_player[2].getType());
+}
+
+function asignarBattleCards(index){
+  crd_fight_id_1.innerHTML = `${pokemons_player[index].getId()}`;
+  crd_fight_name_1.innerHTML = `${pokemons_player[index].getName()}`;
+  crd_fight_stats_1.innerHTML = `${pokemons_player[index].getStats()}`;
+  crd_fight_img_1.src = `${pokemons_player[index].getImg()}`;
+  crd_fight_type_1.innerHTML = `${pokemons_player[index].getType()}`;
+  crd_fight_bg_1.style.background = gradientBackgroundGenerator(pokemons_player[index].getType());
+
+  crd_fight_id_2.innerHTML = `${pokemons_pc[index].getId()}`;
+  crd_fight_name_2.innerHTML = `${pokemons_pc[index].getName()}`;
+  crd_fight_stats_2.innerHTML = `${pokemons_pc[index].getStats()}`;
+  crd_fight_img_2.src = `${pokemons_pc[index].getImg()}`;
+  crd_fight_type_2.innerHTML = `${pokemons_pc[index].getType()}`;
+  crd_fight_bg_2.style.background = gradientBackgroundGenerator(pokemons_pc[index].getType());
 }
 
 
 
-async function combatirPokemos(index) {
-  await generarPokemons();
+function combatirPokemos(index) {
   console.log()
   let poke_player = pokemons_player[index];
-  let poke_pc = pokemons_pc[index];/*
+  let poke_pc = pokemons_pc[index];
   let poke_player_power = poke_player.getStats();
   let poke_pc_power = poke_pc.getStats();
   let poke_player_type = poke_player.getType();
-  let poke_pc_type = poke_pc.getType();*/
-
-  let poke_player_power = 100;
-let poke_pc_power = 100;
-let poke_player_type = "plant";
-let poke_pc_type = "fire";
+  let poke_pc_type = poke_pc.getType();
 
   console.log(poke_player_power, poke_player_type, " VS ", poke_pc_power, poke_pc_type);
-  
+
   if (esDebil(poke_player_type, poke_pc_type)) {
 
     poke_player_power = poke_player_power * 0.75;
@@ -260,13 +303,13 @@ let poke_pc_type = "fire";
     poke_pc_power = poke_pc_power * 0.75;
     console.log("pc es debil");
   }
-  if(poke_player_power >= poke_pc_power){
-    temp_player_wins ++;
+  if (poke_player_power >= poke_pc_power) {
+    temp_player_wins++;
   }
-  if(poke_player_power < poke_pc_power){
-    temp_player_losses ++;
+  if (poke_player_power < poke_pc_power) {
+    temp_player_losses++;
   }
-  console.log("V",temp_player_wins,"D",temp_player_losses)
+  console.log("V", temp_player_wins, "D", temp_player_losses)
 }
 
 function esDebil(a, b) {
@@ -365,6 +408,15 @@ function esDebil(a, b) {
   }
   return ret;
 }
+
+async function battleScreen() {
+  await generarPokemons();
+  asignarPlayerCards();
+  asignarBattleCards(2);
+}
+
+battleScreen();
+
 
 /************LOGICA*************/
 /*
