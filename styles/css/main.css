@@ -299,7 +299,6 @@ h1 {
   color: #f1f1f1; }
 
 .bg-red-table h3 {
-<<<<<<< HEAD
   color: #ffcb05; }
 
 .bg-red-primary {
@@ -354,8 +353,11 @@ a.btn-submit {
   text-decoration: none; }
 
 a.btn-submit:hover {
-  color: inherit; }
-=======
+  color: inherit;
+  background: #DD082F;
+  color: #f1f1f1; }
+
+.bg-red-table h3 {
   color: #FFCB05; }
 
 /* ----------------------------------------- */
@@ -419,4 +421,3 @@ a.btn-submit:hover {
   background: url(../../assets/img/pokemon/round_3.png);
   background-size: cover;
   background-repeat: no-repeat; }
->>>>>>> dev

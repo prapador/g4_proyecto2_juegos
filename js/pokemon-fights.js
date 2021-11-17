@@ -742,11 +742,16 @@ async function secuenciaDeAcontecimientos() {
   hacerBattleCardsInvisibles();
   submitButtonUI.addEventListener("click", (e) => {
     e.preventDefault();
+    localStorage.removeItem("lastPlayer");
     temp_user_name = inputNameUI.value;
-    headerUI.classList.add("animate__animated", "animate__fadeOut", "slow");
-    setTimeout(() => {
-      showField();
-    }, 2000);
+    if(temp_user_name.trim().length === 0) {
+    alert('Introduce un nombre válido')
+    } else {
+      headerUI.classList.add("animate__animated", "animate__fadeOut", "slow");
+      setTimeout(() => {
+        showField();
+      }, 2000);
+    }
   });
 
   await generarPokemons();
