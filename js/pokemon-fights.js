@@ -50,7 +50,7 @@ let url = "https://pokeapi.co/api/v2/pokemon/";
 let players = [];
 let pokemons_pc = [];
 var pokemons_player = [];
-var temp_user_name = "";
+var temp_user_name = "el pepe";
 var temp_player_wins = 0;
 var temp_player_losses = 0;
 
@@ -90,11 +90,16 @@ let crd_fight_img_2 = document.getElementById("crd_fight_img_2");
 let crd_fight_type_2 = document.getElementById("crd_fight_type_2");
 let crd_fight_bg_2 = document.getElementById("crd_fight_bg_2");
 
+let crd_pc_1 = document.getElementById("crd_pc_1");
+let crd_pc_2 = document.getElementById("crd_pc_2");
+let crd_pc_3 = document.getElementById("crd_pc_3");
+
 let btn_user_submit = document.getElementById("elpepe");
+let div_cards_pc = document.getElementById("div_cards_pc");
 
 /********COLORES*********/
 const elementColors = {
-  plant: ["#ffffff", "#b6dfa5", "#7cd57a"],
+  grass: ["#ffffff", "#b6dfa5", "#7cd57a"],
   fire: ["#ffffff", "#e29a67", "#d53636"],
   water: ["#ffffff", "#a5c7df", "#7aacd5"],
   bug: ["#ffffff", "#d1dfa5", "#c2d57a"],
@@ -148,9 +153,13 @@ async function generarPokemon(posicion_pokedex, array) {
 }
 
 function randomNumber(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  if (min == max && max == 1) {
+    return max;
+  } else {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }
 
 function addPlayer(n, w, l) {
@@ -195,8 +204,8 @@ function parsearPlayer(object) {
 
 function gradientBackgroundGenerator(type) {
   switch (type) {
-    case "plant":
-      return `radial-gradient(circle, ${elementColors.plant[0]} 0%, ${elementColors.plant[1]} 50%, ${elementColors.plant[2]} 100%)`;
+    case "grass":
+      return `radial-gradient(circle, ${elementColors.grass[0]} 0%, ${elementColors.grass[1]} 50%, ${elementColors.grass[2]} 100%)`;
     case "fire":
       return `radial-gradient(circle, ${elementColors.fire[0]} 0%, ${elementColors.fire[1]} 50%, ${elementColors.fire[2]} 100%)`;
     case "water":
@@ -277,7 +286,7 @@ function asignarBattleCards(index) {
 
 
 
-function combatirPokemos(index) {
+function combatirPokemons(index) {
   let poke_player = pokemons_player[index];
   let poke_pc = pokemons_pc[index];
   let poke_player_power = poke_player.getStats();
@@ -289,19 +298,21 @@ function combatirPokemos(index) {
 
   if (esDebil(poke_player_type, poke_pc_type)) {
 
-    poke_player_power = poke_player_power * 0.75;
+    poke_player_power = poke_player_power * 0.5;
     console.log("player es debil");
   }
   if (esDebil(poke_pc_type, poke_player_type)) {
 
-    poke_pc_power = poke_pc_power * 0.75;
+    poke_pc_power = poke_pc_power * 0.5;
     console.log("pc es debil");
   }
   if (poke_player_power >= poke_pc_power) {
     temp_player_wins++;
+    return "player";
   }
   if (poke_player_power < poke_pc_power) {
     temp_player_losses++;
+    return "pc";
   }
   console.log("V", temp_player_wins, "D", temp_player_losses);
 }
@@ -320,11 +331,11 @@ function esDebil(a, b) {
       }
       break;
     case "water":
-      if (b == "plant" || b == "electric") {
+      if (b == "grass" || b == "electric") {
         ret = true;
       }
       break;
-    case "plant":
+    case "grass":
       if (b == "fire" || b == "ice" || b == "poison" || b == "flying" || b == "bug") {
         ret = true;
       }
@@ -350,7 +361,7 @@ function esDebil(a, b) {
       }
       break;
     case "tierra":
-      if (b == "water" || b == "plant" || b == "ice") {
+      if (b == "water" || b == "grass" || b == "ice") {
         ret = true;
       }
       break;
@@ -370,7 +381,7 @@ function esDebil(a, b) {
       }
       break;
     case "rock":
-      if (b == "water" || b == "plant" || b == "fighting" || b == "tierra" || b == "steel") {
+      if (b == "water" || b == "grass" || b == "fighting" || b == "tierra" || b == "steel") {
         ret = true;
       }
       break;
@@ -414,35 +425,75 @@ function mostrarRound() {
 function userScreen() {
   //mostrar pantalla de usuario
 }
+let array_indices = [1, 2, 3];
+
+function removeRandomPcCard() {
+  let indice_a_cargarse = randomNumber(1, array_indices.length);
+  indice_a_cargarse--;
+  if (array_indices[indice_a_cargarse] == 1) {
+    array_indices.splice(indice_a_cargarse, 1);
+    crd_pc_1.classList.add("d-none");
+  } else if (array_indices[indice_a_cargarse] == 2) {
+    array_indices.splice(indice_a_cargarse, 1);
+    crd_pc_2.classList.add("d-none");
+  } else if (array_indices[indice_a_cargarse] == 3) {
+    array_indices.splice(indice_a_cargarse, 1);
+    crd_pc_3.classList.add("d-none");
+  }
+}
 
 function invocarCarta(index) {
   if (index == 0) {
     crd_plyr_bg_1.classList.add("d-none");
+    removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 1) {
     crd_plyr_bg_2.classList.add("d-none");
+    removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 2) {
     crd_plyr_bg_3.classList.add("d-none");
+    removeRandomPcCard();
     asignarBattleCards(index);
   }
 }
 
 function scoreScreen() {
-  console.log("llegue al final")
+  console.log("llegue al final");
+  if(temp_player_wins > temp_player_losses){
+    addPlayer(temp_user_name, 1, 0);
+  }else{
+    addPlayer(temp_user_name, 0, 1);
+  }
+  temp_player_wins = 0;
+  temp_player_wins = 0;
+  console.log(players);
+}
+
+function animarGanador() {
+
 }
 
 function duelo(card, turno) {
   turno++;
   return new Promise((resolve) => {
-    console.log("voy a entrar al timeout");
-    crd_plyr_bg_1.onclick = function () {}
-    crd_plyr_bg_2.onclick = function () {}
-    crd_plyr_bg_3.onclick = function () {}
+    crd_plyr_bg_1.onclick = function () {};
+    crd_plyr_bg_2.onclick = function () {};
+    crd_plyr_bg_3.onclick = function () {};
+    let ganador = combatirPokemons(card);
+    if (ganador == "player") {
+      animarGanador(crd_fight_bg_1);
+      console.log("WINNER", pokemons_player[card].getName());
+      console.log("Victorias", temp_player_wins, "Derrotas ", temp_player_losses);
+    }
+    if (ganador == "pc") {
+      animarGanador(crd_fight_bg_2);
+      console.log("WINNER", pokemons_pc[card].getName());
+      console.log("Victorias", temp_player_wins, "Derrotas ", temp_player_losses);
+    }
     let timerId = setTimeout(function tick() {
-      console.log("dentro del timeout del timeout");
       generarBattleField(turno);
       resolve("duelo terminado");
     }, 1000)
@@ -458,11 +509,8 @@ async function generarBattleField(turno) {
       if (clickeable && turno < 4) {
         clickeable = false;
         invocarCarta(0);
-        console.log("boton 1 llama a duelo");
-        await duelo(1, turno);
+        await duelo(0, turno);
         mostrarRound(turno);
-        console.log(turno, clickeable);
-        console.log("luego de esperar el duelo de boton 1", turno, clickeable);
         clickeable = true;
       }
     }
@@ -470,11 +518,8 @@ async function generarBattleField(turno) {
       if (clickeable && turno < 4) {
         clickeable = false;
         invocarCarta(1);
-        console.log("boton 2 llama a duelo");
-        await duelo(2, turno);
+        await duelo(1, turno);
         mostrarRound(turno);
-        console.log(turno, clickeable);
-        console.log("luego de esperar el duelo de boton 2", turno, clickeable);
         clickeable = true;
       }
     }
@@ -482,16 +527,12 @@ async function generarBattleField(turno) {
       if (clickeable && turno < 4) {
         clickeable = false;
         invocarCarta(2);
-        console.log("boton 3 llama a duelo");
-        await duelo(3, turno);
+        await duelo(2, turno);
         mostrarRound(turno);
-        console.log(turno, clickeable);
-        console.log("luego de esperar el duelo de boton 3", turno, clickeable);
         clickeable = true;
       }
     }
     if (turno == 4) {
-      console.log("bf terminado")
       scoreScreen();
       resolve();
     }
@@ -510,22 +551,11 @@ async function secuenciaDeAcontecimientos() {
   await generarPokemons();
   /************* DESPUES DE FETCH ***************/
   asignarPlayerCards();
-  const promesa_onclick_user = new Promise((resolve, reject) => {
-    btn_user_submit.onclick = function () {
-      /* var temp_user_name = user_name_imput.value;
-       if (temp_user_name == "") {
-         reject(console.log("problemas en el login posiblemente user vacio"))
-       } else {
-         resolve("promesa del boton login cumplida");
-       }*/
-      resolve("promesa del boton login cumplida");
-    }
-  });
-  //promesa_onclick_user.then(
-  /************* DESPUES DE loguear player ***************/
+
+  //meter usuario
+
   generarBattleField(1);
 
-  //);
 }
 
 secuenciaDeAcontecimientos();
@@ -582,6 +612,5 @@ listar players
 volver a jugar --> call combatir
 cambiar player --> call user Screen
 salir -- > call juegos
-
 
 */
