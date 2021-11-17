@@ -29,7 +29,14 @@ p {
 }
 
 .header-poke {
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.header-bg {
+  width: 880px;
+  height: 970px;
+  background: url(../../assets/img/pokemon/bg_login.jpg);
 }
 
 /* ----------------------------------------- */

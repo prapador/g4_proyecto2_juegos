@@ -788,3 +788,5 @@ function showResults() {
 players.sort((a, b) => {
   return b.wins - a.wins;
 });
+
+/*atendiendo imput text*/
