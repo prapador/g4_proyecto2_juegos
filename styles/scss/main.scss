@@ -32,7 +32,7 @@
 /* ----------------------------------------- */
 /* FORMULARIO */
 /* ------------------------------------------*/
-h1{
+h1 {
   font-size: 3em !important;
 }
 
@@ -360,30 +360,19 @@ h1{
 /* TABLA RESULTADOS */
 /* ------------------------------------------*/
 
-.fondo{
+.fondo {
   margin-top: 20px;
   width: 880px;
   position: relative;
 }
 
-.scorers1{
+.scorers1 {
   position: absolute;
   bottom: 5%;
 }
 
-.scorers2{
+.scorers2 {
   position: absolute;
-}
-
-.turn{
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  background: url(../../assets/img/pokemon/round_3.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  right: 0%;
-  top: 43%;
 }
 
 .pokeball {
@@ -396,24 +385,45 @@ h1{
   margin-top: 20px;
 }
 
-.pc_logo{
+.pc_logo {
   height: 64px;
   width: 64px;
-  background: white;
+  background: url(../../assets/img/pokemon/pc_logo.png);
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
-.player_logo{
+.player_logo {
   height: 64px;
   width: 64px;
-  background: white;
+  background: url(../../assets/img/pokemon/player_logo.png);
   background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
+.turn {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  background: url(../../assets/img/pokemon/round_1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  right: 0%;
+  top: 43%;
+}
 
+.turno-2 {
+  background: url(../../assets/img/pokemon/round_2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.turno-3 {
+  background: url(../../assets/img/pokemon/round_3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
