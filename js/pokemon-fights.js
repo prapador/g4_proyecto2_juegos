@@ -127,6 +127,9 @@ const elementColors = {
   flying: ["#ffffff", "#f9f9f9", "#dedede"],
 };
 
+crd_pc_1.style.background = "";
+crd_pc_2
+crd_pc_3
 cargarPlayersLocal();
 
 async function generarPokemons() {
@@ -301,7 +304,7 @@ function asignarBattleCards(index) {
   crd_fight_name_1.innerHTML = `${pokemons_player[index].getShortName()}`;
   crd_fight_stats_1.innerHTML = `${pokemons_player[index].getStats()}`;
   crd_fight_img_1.src = `${pokemons_player[index].getImg()}`;
-  crd_fight_type_1.innerHTML = `${pokemons_player[index].getType()}`;
+  crd_fight_type_1.src = `${typeGenerator(pokemons_player[index].getType())}`;
   crd_fight_bg_1.style.background = gradientBackgroundGenerator(
     pokemons_player[index].getType()
   );
@@ -315,7 +318,7 @@ function asignarBattleCards(index) {
   crd_fight_name_2.innerHTML = `${pokemons_pc[index].getShortName()}`;
   crd_fight_stats_2.innerHTML = `${pokemons_pc[index].getStats()}`;
   crd_fight_img_2.src = `${pokemons_pc[index].getImg()}`;
-  crd_fight_type_2.innerHTML = `${pokemons_pc[index].getType()}`;
+  crd_fight_type_2.src = `${typeGenerator(pokemons_pc[index].getType())}`;
   crd_fight_bg_2.style.background = gradientBackgroundGenerator(
     pokemons_pc[index].getType()
   );
@@ -528,7 +531,7 @@ function scoreScreen() {
   temp_player_wins = 0;
   temp_player_wins = 0;
   console.log(players);
-  
+
   showResults();
 }
 
@@ -653,7 +656,6 @@ const cardFight2 = document.getElementById("crd_fight_bg_2");
 const throwCard = document.getElementById("triggerthrow");
 
 // SCREEN- 3
-const buttonresultsUI = document.getElementById("triggerResults");
 const results = document.getElementById("results");
 
 function showField() {
@@ -662,10 +664,6 @@ function showField() {
   battlefieldUI.classList.remove("d-none");
 }
 
-buttonresultsUI.addEventListener("click", (e) => {
-  e.preventDefault();
-  showResults();
-});
 
 function showResults() {
   battlefieldUI.classList.add("d-none");
@@ -721,6 +719,7 @@ secuenciaDeAcontecimientos();
 
 
 
+const tablaResultadosUI = document.getElementById("tabla-resutlados");
 
 // TABLA DE RESULTADOS
 function showResults() {
@@ -754,28 +753,29 @@ function showResults() {
     });
     promesa2.then(() => {
       battlefieldUI.classList.add("d-none");
-      results.classList.remove("d-none");
-      results.classList.add("animate__animated", "animate__fadeIn", "animate_slower");
+      tablaResultadosUI.classList.remove("d-none");
+      tablaResultadosUI.classList.add("animate__animated", "animate__fadeIn", "animate_slower");
     });
   })
+  
 
 // CREA TABLA
   let allItems = [];
   for (item in players) {
-    const name = document.createElement("h3");
+    const name = document.createElement("th");
     name.textContent = players[item].name;
 
-    const wins = document.createElement("p");
+    const wins = document.createElement("th");
     wins.classList.add('tabla-victoria')
     wins.textContent = players[item].wins;
 
 
-    const loses = document.createElement("p");
+    const loses = document.createElement("th");
     loses.classList.add('tabla-derrota')
     loses.textContent =  players[item].loses;
 
-    const container = document.createElement("div");
-    container.classList.add("alert", 'bg-red-table');
+    const container = document.createElement("tr");
+    // container.classList.add("alert", 'bg-red-table');
     container.append(name, wins, loses);
 
     allItems.push(container);

@@ -207,13 +207,15 @@
 .card-back {
   max-width: 165px;
   padding: 15px 15px 0 15px;
-  border: 8px solid #0f1b5d;
+  border: 8px solid #002576;
   border-radius: 15px;
   -webkit-box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 7px 0.5px rgba(0, 0, 0, 0.8);
   text-align: center;
   margin: 0 20px;
+  background: url(../../assets/img/pokemon/poke_card_back.jpg);
+  background-size: cover;
 }
 
 .imageContainer {
@@ -299,3 +301,32 @@
 .user-field {
   height: 302px;
 }
+
+
+/* ----------------------------------------- */
+/* TABLA RESULTADOS */
+/* ------------------------------------------*/
+.bg-red-table {
+  background   : $bg-red-secondary;
+  color:  $text-primary;
+  h3 {
+    color: $text-amarillo
+  }
+}
+
+.tabla-victoria::before {
+  content: 'Victorias: '
+}
+
+.tabla-derrota::before {
+  content: 'Derrotas: '
+}
+
+/* ----------------------------------------- */
+/* TABLA RESULTADOS */
+/* ------------------------------------------*/
+.bg-red-table {
+  background: #DD082F;
+  color: #f1f1f1; }
+  .bg-red-table h3 {
+    color: #FFCB05; }
