@@ -375,6 +375,17 @@ h1{
   position: absolute;
 }
 
+.turn{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  background: url(../../assets/img/pokemon/round_3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  right: 0%;
+  top: 43%;
+}
+
 .pokeball {
   height: 64px;
   width: 64px;
