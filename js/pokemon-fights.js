@@ -539,6 +539,8 @@ function showResults() {
 
 triggerBattle.addEventListener("click", (e) => {
   e.preventDefault();
+  console.log(cardFight1)
+  console.log(cardFight2)
   battleOn();
 });
 
@@ -549,17 +551,25 @@ async function battleOn() {
 
     setTimeout(function pepe() {
       resolve();
-    }, 2000);
+    }, 1500);
   });
   promesa1.then(() => {
-    cardFight1.classList.remove("animate__animated", "animate__shakeX");
-    cardFight2.classList.remove("animate__animated", "animate__shakeY");
-    cardFight1.classList.add("animate__animated", "animate__shakeY");
-    cardFight2.classList.add("animate__animated", "animate__shakeX");
-  })
-}
+    let promesa2 = new Promise((resolve) => {
+      cardFight1.classList.remove("animate__animated", "animate__shakeX");
+      cardFight2.classList.remove("animate__animated", "animate__shakeY");
+      cardFight2.classList.add("animate__animated", "animate__shakeX");
+      cardFight1.classList.add("animate__animated", "animate__shakeY");
 
-function battleOff() {
-  cardFight1.classList.remove("animate__animated", "animate__shakeY");
-  cardFight2.classList.remove("animate__animated", "animate__shakeX");
+      setTimeout(function pepe() {
+        resolve();
+      }, 1500);
+    });
+    promesa2.then(() => {
+      cardFight1.classList.remove("animate__animated", "animate__shakeY");
+      cardFight2.classList.remove("animate__animated", "animate__shakeX");
+      cardFight1.classList.remove("animate__animated", "animate__shakeX");
+      cardFight2.classList.remove("animate__animated", "animate__shakeY");
+      console.log('se borra')
+    });
+  });
 }
