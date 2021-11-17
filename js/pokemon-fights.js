@@ -300,8 +300,6 @@ function asignarBattleCards(index) {
   );
 }
 
-
-
 function combatirPokemons(index) {
   let poke_player = pokemons_player[index];
   let poke_pc = pokemons_pc[index];
@@ -319,12 +317,10 @@ function combatirPokemons(index) {
   );
 
   if (esDebil(poke_player_type, poke_pc_type)) {
-
     poke_player_power = poke_player_power * 0.5;
     console.log("player es debil");
   }
   if (esDebil(poke_pc_type, poke_player_type)) {
-
     poke_pc_power = poke_pc_power * 0.5;
     console.log("pc es debil");
   }
@@ -358,7 +354,13 @@ function esDebil(a, b) {
       }
       break;
     case "grass":
-      if (b == "fire" || b == "ice" || b == "poison" || b == "flying" || b == "bug") {
+      if (
+        b == "fire" ||
+        b == "ice" ||
+        b == "poison" ||
+        b == "flying" ||
+        b == "bug"
+      ) {
         ret = true;
       }
       break;
@@ -403,7 +405,13 @@ function esDebil(a, b) {
       }
       break;
     case "rock":
-      if (b == "water" || b == "grass" || b == "fighting" || b == "tierra" || b == "steel") {
+      if (
+        b == "water" ||
+        b == "grass" ||
+        b == "fighting" ||
+        b == "tierra" ||
+        b == "steel"
+      ) {
         ret = true;
       }
       break;
@@ -484,9 +492,9 @@ function invocarCarta(index) {
 
 function scoreScreen() {
   console.log("llegue al final");
-  if(temp_player_wins > temp_player_losses){
+  if (temp_player_wins > temp_player_losses) {
     addPlayer(temp_user_name, 1, 0);
-  }else{
+  } else {
     addPlayer(temp_user_name, 0, 1);
   }
   temp_player_wins = 0;
@@ -494,9 +502,7 @@ function scoreScreen() {
   console.log(players);
 }
 
-function animarGanador() {
-
-}
+function animarGanador() {}
 
 function duelo(card, turno) {
   turno++;
@@ -506,25 +512,41 @@ function duelo(card, turno) {
     crd_plyr_bg_3.onclick = function () {};
     let ganador = combatirPokemons(card);
     if (ganador == "player") {
-      animarGanador(crd_fight_bg_1);
+      // animarGanador(crd_fight_bg_1);
       console.log("WINNER", pokemons_player[card].getName());
-      console.log("Victorias", temp_player_wins, "Derrotas ", temp_player_losses);
+      console.log(
+        "Victorias",
+        temp_player_wins,
+        "Derrotas ",
+        temp_player_losses
+      );
     }
     if (ganador == "pc") {
-      animarGanador(crd_fight_bg_2);
+      // animarGanador(crd_fight_bg_2);
       console.log("WINNER", pokemons_pc[card].getName());
-      console.log("Victorias", temp_player_wins, "Derrotas ", temp_player_losses);
+      console.log(
+        "Victorias",
+        temp_player_wins,
+        "Derrotas ",
+        temp_player_losses
+      );
     }
-    let timerId = setTimeout(function tick() {
-      generarBattleField(turno);
-      resolve("duelo terminado");
-    }, 1000)
+    let timerId = new Promise((resolve) => {
+      setTimeout(function tick() {
+        battleOn();
+        generarBattleField(turno);
+        resolve("duelo terminado");
+      }, 3000);
+    });
+    timerId.then(() => {
+      animarGanador(ganador);
+    });
   });
 }
 
 async function generarBattleField(turno) {
   //animar la entrada al batlefiled
-  return el_pepe = new Promise((resolve) => {
+  return (el_pepe = new Promise((resolve) => {
     let clickeable = true;
     mostrarRound(turno);
     crd_plyr_bg_1.onclick = async function () {
@@ -535,7 +557,7 @@ async function generarBattleField(turno) {
         mostrarRound(turno);
         clickeable = true;
       }
-    }
+    };
     crd_plyr_bg_2.onclick = async function () {
       if (clickeable && turno < 4) {
         clickeable = false;
@@ -544,7 +566,7 @@ async function generarBattleField(turno) {
         mostrarRound(turno);
         clickeable = true;
       }
-    }
+    };
     crd_plyr_bg_3.onclick = async function () {
       if (clickeable && turno < 4) {
         clickeable = false;
@@ -553,12 +575,12 @@ async function generarBattleField(turno) {
         mostrarRound(turno);
         clickeable = true;
       }
-    }
+    };
     if (turno == 4) {
       scoreScreen();
       resolve();
     }
-  });
+  }));
 }
 
 function hacerBattleCardsInvisibles() {
@@ -567,9 +589,10 @@ function hacerBattleCardsInvisibles() {
 }
 
 async function secuenciaDeAcontecimientos() {
-  animacionInicial();
+  // animacionInicial();
   hacerBattleCardsInvisibles();
-  userScreen();
+  // userScreen();
+  showField();
   await generarPokemons();
   /************* DESPUES DE FETCH ***************/
   asignarPlayerCards();
@@ -577,7 +600,6 @@ async function secuenciaDeAcontecimientos() {
   //meter usuario
 
   generarBattleField(1);
-
 }
 
 secuenciaDeAcontecimientos();
@@ -635,3 +657,85 @@ cambiar player --> call user Screen
 salir -- > call juegos
 
 */
+
+/* ----------------------------------------- */
+/* UI */
+/* ------------------------------------------*/
+// SCREEN-1
+const submitButtonUI = document.getElementById("submit-button");
+const headerUI = document.getElementById("header-poke");
+const loginBoxUI = document.getElementById("login-box");
+const inputNameUI = document.getElementById("input_name");
+
+// SCREEN- 2
+const battlefieldUI = document.getElementById("battlefield");
+const cardFight1 = document.getElementById("crd_fight_bg_1");
+const cardFight2 = document.getElementById("crd_fight_bg_2");
+const triggerBattle = document.getElementById("triggerBattle");
+const throwCard = document.getElementById("triggerthrow");
+
+// SCREEN- 3
+const buttonresultsUI = document.getElementById("triggerResults");
+const results = document.getElementById("results");
+
+submitButtonUI.addEventListener("click", (e) => {
+  e.preventDefault();
+  temp_user_name = inputNameUI.value;
+  headerUI.classList.add("animate__animated", "animate__fadeOut", "slow");
+
+  setTimeout(() => {
+    secuenciaDeAcontecimientos();
+  }, 2000);
+});
+
+function showField() {
+  headerUI.classList.add("d-none");
+  battlefieldUI.classList.add("animate__animated", "animate__fadeIn", "slow");
+  battlefieldUI.classList.remove("d-none");
+}
+
+buttonresultsUI.addEventListener("click", (e) => {
+  e.preventDefault();
+  showResults();
+});
+
+function showResults() {
+  battlefieldUI.classList.add("d-none");
+  results.classList.remove("d-none");
+}
+
+triggerBattle.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(cardFight1);
+  console.log(cardFight2);
+  battleOn();
+});
+
+async function battleOn() {
+  let promesa1 = new Promise((resolve) => {
+    cardFight1.classList.add("animate__animated", "animate__shakeX");
+    cardFight2.classList.add("animate__animated", "animate__shakeY");
+
+    setTimeout(function pepe() {
+      resolve();
+    }, 1500);
+  });
+  promesa1.then(() => {
+    let promesa2 = new Promise((resolve) => {
+      cardFight1.classList.remove("animate__animated", "animate__shakeX");
+      cardFight2.classList.remove("animate__animated", "animate__shakeY");
+      cardFight2.classList.add("animate__animated", "animate__shakeX");
+      cardFight1.classList.add("animate__animated", "animate__shakeY");
+
+      setTimeout(function pepe() {
+        resolve();
+      }, 1500);
+    });
+    promesa2.then(() => {
+      cardFight1.classList.remove("animate__animated", "animate__shakeY");
+      cardFight2.classList.remove("animate__animated", "animate__shakeX");
+      cardFight1.classList.remove("animate__animated", "animate__shakeX");
+      cardFight2.classList.remove("animate__animated", "animate__shakeY");
+    });
+  });
+}
