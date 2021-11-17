@@ -128,8 +128,8 @@ const elementColors = {
 };
 
 crd_pc_1.style.background = "";
-crd_pc_2
-crd_pc_3
+crd_pc_2;
+crd_pc_3;
 cargarPlayersLocal();
 
 async function generarPokemons() {
@@ -260,7 +260,7 @@ function gradientBackgroundGenerator(type) {
   }
 }
 
-function typeGenerator(type){
+function typeGenerator(type) {
   let type_url = `./assets/img/pokemon/poke_tipe_${type}_round.png`;
   return type_url;
 }
@@ -295,10 +295,24 @@ function asignarPlayerCards() {
 }
 
 function asignarBattleCards(index) {
-  crd_fight_bg_1.classList.remove("invisible","animate__animated", "animate__hinge", "animate__slower", "d-none"); 
-  crd_fight_bg_1.classList.add("animate__animated", "animate__rotateIn", "animate__slower");
-  setTimeout(function() {
-    crd_fight_bg_1.classList.remove("animate__animated", "animate__rotateIn", "animate__slower");
+  crd_fight_bg_1.classList.remove(
+    "invisible",
+    "animate__animated",
+    "animate__hinge",
+    "animate__slower",
+    "d-none"
+  );
+  crd_fight_bg_1.classList.add(
+    "animate__animated",
+    "animate__rotateIn",
+    "animate__slower"
+  );
+  setTimeout(function () {
+    crd_fight_bg_1.classList.remove(
+      "animate__animated",
+      "animate__rotateIn",
+      "animate__slower"
+    );
   }, 3000);
   crd_fight_id_1.innerHTML = `${pokemons_player[index].getId()}`;
   crd_fight_name_1.innerHTML = `${pokemons_player[index].getShortName()}`;
@@ -309,10 +323,24 @@ function asignarBattleCards(index) {
     pokemons_player[index].getType()
   );
 
-  crd_fight_bg_2.classList.remove("invisible","animate__animated", "animate__hinge", "animate__slower", "d-none");
-  crd_fight_bg_2.classList.add("animate__animated", "animate__rotateIn", "animate__slower");
-  setTimeout(function() {
-    crd_fight_bg_2.classList.remove("animate__animated", "animate__rotateIn", "animate__slower");
+  crd_fight_bg_2.classList.remove(
+    "invisible",
+    "animate__animated",
+    "animate__hinge",
+    "animate__slower",
+    "d-none"
+  );
+  crd_fight_bg_2.classList.add(
+    "animate__animated",
+    "animate__rotateIn",
+    "animate__slower"
+  );
+  setTimeout(function () {
+    crd_fight_bg_2.classList.remove(
+      "animate__animated",
+      "animate__rotateIn",
+      "animate__slower"
+    );
   }, 3000);
   crd_fight_id_2.innerHTML = `${pokemons_pc[index].getId()}`;
   crd_fight_name_2.innerHTML = `${pokemons_pc[index].getShortName()}`;
@@ -475,20 +503,32 @@ function removeRandomPcCard() {
   indice_a_cargarse--;
   if (array_indices[indice_a_cargarse] == 1) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_1.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_pc_1.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_pc_1.classList.add("d-none");
     }, 2000);
   } else if (array_indices[indice_a_cargarse] == 2) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_2.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_pc_2.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_pc_2.classList.add("d-none");
     }, 2000);
   } else if (array_indices[indice_a_cargarse] == 3) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_3.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_pc_3.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_pc_3.classList.add("d-none");
     }, 2000);
   }
@@ -496,24 +536,36 @@ function removeRandomPcCard() {
 
 function invocarCarta(index) {
   if (index == 0) {
-    crd_plyr_bg_1.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_plyr_bg_1.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_plyr_bg_1.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 1) {
-    crd_plyr_bg_2.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_plyr_bg_2.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_plyr_bg_2.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 2) {
-    crd_plyr_bg_3.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
-    setTimeout(function() {
+    crd_plyr_bg_3.classList.add(
+      "animate__animated",
+      "animate__rotateOut",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_plyr_bg_3.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
@@ -537,15 +589,22 @@ function scoreScreen() {
 
 function animarGanador(ganador) {
   if (ganador == "player") {
-    crd_fight_bg_1.classList.add("animate__animated", "animate__hinge", "animate__slower");
-    setTimeout(function() {
+    crd_fight_bg_1.classList.add(
+      "animate__animated",
+      "animate__hinge",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_fight_bg_1.classList.add("d-none");
     }, 2000);
-
   }
   if (ganador == "pc") {
-    crd_fight_bg_2.classList.add("animate__animated", "animate__hinge", "animate__slower");
-    setTimeout(function() {
+    crd_fight_bg_2.classList.add(
+      "animate__animated",
+      "animate__hinge",
+      "animate__slower"
+    );
+    setTimeout(function () {
       crd_fight_bg_2.classList.add("d-none");
     }, 2000);
   }
@@ -557,7 +616,7 @@ function duelo(card, turno) {
     crd_plyr_bg_1.onclick = function () {};
     crd_plyr_bg_2.onclick = function () {};
     crd_plyr_bg_3.onclick = function () {};
-    setTimeout(function() {
+    setTimeout(function () {
       battleOn();
     }, 3100);
     let ganador = combatirPokemons(card);
@@ -582,12 +641,12 @@ function duelo(card, turno) {
       );
     }
     let timerId = new Promise((resolve) => {
-      setTimeout(function() {
+      setTimeout(function () {
         generarBattleField(turno);
         resolve("duelo terminado");
       }, 9000);
     });
-    setTimeout(function() {
+    setTimeout(function () {
       animarGanador(ganador);
     }, 6000);
   });
@@ -604,7 +663,7 @@ async function generarBattleField(turno) {
         //  seg++;
         //  console.log(seg)
         //}, 1000);
-        console.log()
+        console.log();
         clickeable = false;
         invocarCarta(0);
         await duelo(0, turno);
@@ -642,7 +701,6 @@ function hacerBattleCardsInvisibles() {
   crd_fight_bg_2.classList.add("invisible");
 }
 
-
 /***************asdfas********************/
 const submitButtonUI = document.getElementById("submit-button");
 const headerUI = document.getElementById("header-poke");
@@ -662,12 +720,6 @@ function showField() {
   headerUI.classList.add("d-none");
   battlefieldUI.classList.add("animate__animated", "animate__fadeIn", "slow");
   battlefieldUI.classList.remove("d-none");
-}
-
-
-function showResults() {
-  battlefieldUI.classList.add("d-none");
-  results.classList.remove("d-none");
 }
 
 async function battleOn() {
@@ -709,6 +761,7 @@ async function secuenciaDeAcontecimientos() {
       showField();
     }, 2000);
   });
+
   await generarPokemons();
   /************* DESPUES DE FETCH ***************/
   asignarPlayerCards();
@@ -717,9 +770,12 @@ async function secuenciaDeAcontecimientos() {
 
 secuenciaDeAcontecimientos();
 
-
-
 const tablaResultadosUI = document.getElementById("tabla-resutlados");
+const bodyUI = document.getElementById("body");
+const resultadosUI = document.getElementById("resultados");
+const userResultsUI = document.getElementById("userResults");
+
+let lastPlayer;
 
 // TABLA DE RESULTADOS
 function showResults() {
@@ -733,13 +789,10 @@ function showResults() {
 
   let promesa1 = new Promise((resolve) => {
     setTimeout(() => {
-      battlefieldUI.classList.add(
-        "animate__animated",
-        "animate__fadeOut",
-      );
-      resolve()
+      battlefieldUI.classList.add("animate__animated", "animate__fadeOut");
+      resolve();
     }, 100);
-  })
+  });
   promesa1.then(() => {
     let promesa2 = new Promise((resolve) => {
       setTimeout(() => {
@@ -753,26 +806,33 @@ function showResults() {
     });
     promesa2.then(() => {
       battlefieldUI.classList.add("d-none");
+      tablaResultadosUI.classList.add(
+        "animate__animated",
+        "animate__fadeIn",
+        "animate_slower"
+      );
       tablaResultadosUI.classList.remove("d-none");
-      tablaResultadosUI.classList.add("animate__animated", "animate__fadeIn", "animate_slower");
     });
-  })
-  
+  });
 
-// CREA TABLA
+  // CREA TABLA
   let allItems = [];
+  resultadosUI.innerHTML = `${temp_user_name}: `;
   for (item in players) {
+    if (players[item].name == temp_user_name) {
+      userResultsUI.innerHTML = `Victorias: ${players[item].wins} - Derrotas: ${players[item].loses}`;
+      lastPlayer = temp_user_name;
+    }
     const name = document.createElement("th");
     name.textContent = players[item].name;
 
     const wins = document.createElement("th");
-    wins.classList.add('tabla-victoria')
+    wins.classList.add("tabla-victoria");
     wins.textContent = players[item].wins;
 
-
     const loses = document.createElement("th");
-    loses.classList.add('tabla-derrota')
-    loses.textContent =  players[item].loses;
+    loses.classList.add("tabla-derrota");
+    loses.textContent = players[item].loses;
 
     const container = document.createElement("tr");
     // container.classList.add("alert", 'bg-red-table');
@@ -783,8 +843,38 @@ function showResults() {
   results.append(...allItems);
 }
 
-
 // ORDENA PLAYERS POR WINS
 players.sort((a, b) => {
   return b.wins - a.wins;
 });
+
+const triggerTableUI = document.getElementById("trigger-table");
+
+triggerTableUI.addEventListener("click", (e) => {
+  e.preventDefault();
+  showResults();
+});
+
+/* ----------------------------------------- */
+/* BOTONES TABLA */
+/* ------------------------------------------*/
+btnVolverJugar = document.getElementById("volver-jugar");
+let volverJugar = false;
+// volver a jugar
+btnVolverJugar.addEventListener("click", (e) => {
+  e.preventDefault();
+  btnVolverJugar = true
+  localStorage.setItem("lastPlayer", lastPlayer);
+  window.location.href = "./";
+});
+
+window.onload = function () {
+  if (localStorage.getItem("lastPlayer") != null) {
+    inputNameUI.value = localStorage.getItem("lastPlayer");
+  }
+};
+
+
+
+
+

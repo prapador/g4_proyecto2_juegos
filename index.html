@@ -23,7 +23,7 @@
     />
     <title>Proyecto 2</title>
   </head>
-  <body style="background-color: black;">
+  <body id="body" class="body-black">
     <!-- /////////////////////////
               HEADER
     ////////////////////////////-->
@@ -63,7 +63,7 @@
     <!-- /////////////////////////
               BATTLEFIELD
     ////////////////////////////-->
-    <div class="backgound" style="margin-top: 20px">
+    <div class="backgound">
       <div class="battlefield d-none" id="battlefield">
         <div class="container">
           <!-- COMPUTER-FIELD -->
@@ -215,20 +215,51 @@
       </div>
     </div>
 
+    <button id="trigger-table">tabla</button>
 
+    <div class="table-container d-none body-red" id="tabla-resutlados">
+      <div class="header-table">
+        <div class="container d-flex flex-column text-center pb-5">
+          <div class="img-container">
+            <img
+              src="./assets/img/pokemon/Pokemon-Logo.png"
+              class="img-fluid pokemon-logo"
+              alt="Logo Pokemon"
+            />
+          </div>
+      <h2 class="text-center" id="resultados">Tus resultados</h2>
+      <div id="userResults">
 
-    <table class="table container d-none" id="tabla-resutlados">
-      <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Victorias</th>
-          <th scope="col">Derrotas</th>
-        </tr>
-      </thead>
-      <tbody id="results">
+      </div>
 
-      </tbody>
-    </table>
+        </div>
+      </div>
+      <h1 class="text-center">Clasificación</h1>
+      <table class="table container " >
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Victorias</th>
+            <th scope="col">Derrotas</th>
+          </tr>
+        </thead>
+        <tbody id="results">
+        </tbody>
+      </table>
+      <div class="buttons d-flex container">
+        <input
+        type="button"
+        value="Volver a jugar"
+        class="btn-submit"
+        id="volver-jugar"
+      />
+
+      <a class="btn-submit"href="./">Cambiar Usuario</a>
+
+      <a class="btn-submit"href="./">Salir</a>
+
+    </div>
+
 
 
     <!-- JS Propio -->
