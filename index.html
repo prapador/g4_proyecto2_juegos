@@ -23,7 +23,7 @@
     />
     <title>Proyecto 2</title>
   </head>
-  <body>
+  <body style="background-color: black;">
     <!-- /////////////////////////
               HEADER
     ////////////////////////////-->
@@ -31,7 +31,7 @@
       <div class="container d-flex flex-column text-center pb-5">
         <div class="img-container">
           <img
-            src="./assets/img/pokemon-logo.png"
+            src="./assets/img/pokemon/Pokemon-Logo.png"
             class="img-fluid pokemon-logo"
             alt="Logo Pokemon"
           />
@@ -63,135 +63,150 @@
     <!-- /////////////////////////
               BATTLEFIELD
     ////////////////////////////-->
-    <div class="battlefield d-none" id="battlefield">
-      <div class="container">
-        <!-- COMPUTER-FIELD -->
-        <div class="computer-field">
-          <div class="d-flex justify-content-evenly" id="div_cards_pc">
-            <div
-              class="carta_player card-pok card-back card_pc"
-              id="crd_pc_1"
-            ></div>
-            <div
-              class="carta_player card-pok card-back card_pc"
-              id="crd_pc_2"
-            ></div>
-            <div
-              class="carta_player card-pok card-back card_pc"
-              id="crd_pc_3"
-            ></div>
-          </div>
-        </div>
-        <div class="spacer"></div>
-
-        <!-- BATTLE-CARDS -->
-        <div class="battle-cards">
-          <div class="d-flex justify-content-center">
-            <div class="carta_player pokemon-card card-pok" id="crd_fight_bg_1">
-              <div class="face front">
-                <div class="pokemon-name-hp">
-                  <span class="pokemon-name" id="crd_fight_name_1"
-                    >Charizard</span
-                  >
-                  <span class="pokemon-id" id="crd_fight_id_1">8</span>
-                </div>
-                <div class="imageContainer">
-                  <img
-                    id="crd_fight_img_1"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-                    style="width: 120px"
-                  />
-                </div>
-                <div class="pokemon-type-id">
-                  <span class="pokemon-hp" id="crd_fight_stats_1">120</span>
-                  <span class="pokemon-type" id="crd_fight_type_1">Fire</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="carta_player pokemon-card card-pok" id="crd_fight_bg_2">
-              <div class="face front">
-                <div class="pokemon-name-hp">
-                  <span class="pokemon-name" id="crd_fight_name_2"
-                    >Charizard</span
-                  >
-                  <span class="pokemon-id" id="crd_fight_id_2">8</span>
-                </div>
-                <div class="imageContainer">
-                  <img
-                    id="crd_fight_img_2"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-                    style="width: 120px"
-                  />
-                </div>
-                <div class="pokemon-type-id">
-                  <span class="pokemon-hp" id="crd_fight_stats_2">120</span>
-                  <span class="pokemon-type" id="crd_fight_type_2">Fire</span>
-                </div>
-              </div>
+    <div class="backgound" style="margin-top: 20px">
+      <div class="battlefield d-none" id="battlefield">
+        <div class="container">
+          <!-- COMPUTER-FIELD -->
+          <div class="computer-field">
+            <div class="d-flex justify-content-center" id="div_cards_pc">
+              <div
+                class="carta_player card-pok card-back card_pc"
+                id="crd_pc_1"
+              ></div>
+              <div
+                class="carta_player card-pok card-back card_pc"
+                id="crd_pc_2"
+              ></div>
+              <div
+                class="carta_player card-pok card-back card_pc"
+                id="crd_pc_3"
+              ></div>
             </div>
           </div>
-        </div>
+          <div class="spacer"></div>
 
-        <div class="spacer"></div>
+          <!-- BATTLE-CARDS -->
+          <div class="battle-cards">
+            <div class="d-flex justify-content-center">
+              <div
+                class="carta_player pokemon-card card-pok"
+                id="crd_fight_bg_1"
+              >
+                <div class="face front">
+                  <div class="pokemon-name-hp">
+                    <span class="pokemon-name" id="crd_fight_name_1"
+                      >Charizard</span
+                    >
+                    <span class="pokemon-id" id="crd_fight_id_1">8</span>
+                  </div>
+                  <div class="imageContainer">
+                    <img
+                      id="crd_fight_img_1"
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+                      style="width: 120px"
+                    />
+                  </div>
+                  <div class="pokemon-type-id">
+                    <span class="pokemon-hp" id="crd_fight_stats_1">120</span>
+                    <img class="pokemon-type" id="crd_fight_type_1"></img>
+                  </div>
+                </div>
+              </div>
 
-        <!-- USER-FIELD -->
-        <div class="user-field">
-          <div class="d-flex justify-content-evenly">
-            <div class="carta_player pokemon-card card-pok" id="crd_plyr_bg_1">
-              <div class="face front">
-                <div class="pokemon-name-hp">
-                  <span class="pokemon-name" id="crd_plyr_name_1"
-                    >Charizard</span
-                  >
-                  <span class="pokemon-id" id="crd_plyr_id_1">8</span>
-                </div>
-                <div class="imageContainer">
-                  <img id="crd_plyr_img_1" style="width: 120px" />
-                </div>
-                <div class="pokemon-type-id">
-                  <span class="pokemon-hp" id="crd_plyr_stats_1">120</span>
-                  <span class="pokemon-type" id="crd_plyr_type_1">Fire</span>
+              <div
+                class="carta_player pokemon-card card-pok"
+                id="crd_fight_bg_2"
+              >
+                <div class="face front">
+                  <div class="pokemon-name-hp">
+                    <span class="pokemon-name" id="crd_fight_name_2"
+                      >Charizard</span
+                    >
+                    <span class="pokemon-id" id="crd_fight_id_2">8</span>
+                  </div>
+                  <div class="imageContainer">
+                    <img
+                      id="crd_fight_img_2"
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+                      style="width: 120px"
+                    />
+                  </div>
+                  <div class="pokemon-type-id">
+                    <span class="pokemon-hp" id="crd_fight_stats_2">120</span>
+                    <img class="pokemon-type"  id="crd_fight_type_2"></img>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="carta_player pokemon-card card-pok" id="crd_plyr_bg_2">
-              <div class="face front">
-                <div class="pokemon-name-hp">
-                  <span class="pokemon-name" id="crd_plyr_name_2"
-                    >Charizard</span
-                  >
-                  <span class="pokemon-id" id="crd_plyr_id_2">8</span>
-                </div>
-                <div class="imageContainer">
-                  <img id="crd_plyr_img_2" style="width: 120px" />
-                </div>
-                <div class="pokemon-type-id">
-                  <span class="pokemon-hp" id="crd_plyr_stats_2">120</span>
-                  <span class="pokemon-type" id="crd_plyr_type_2">Fire</span>
+          <!-- USER-FIELD -->
+          <div class="user-field" style="padding-top:35px">
+            <div class="d-flex justify-content-center">
+              <div
+                class="carta_player pokemon-card card-pok"
+                id="crd_plyr_bg_1"
+              >
+                <div class="face front">
+                  <div class="pokemon-name-hp">
+                    <span class="pokemon-name" id="crd_plyr_name_1"
+                      >Charizard</span
+                    >
+                    <span class="pokemon-id" id="crd_plyr_id_1">8</span>
+                  </div>
+                  <div class="imageContainer">
+                    <img id="crd_plyr_img_1" style="width: 120px" />
+                  </div>
+                  <div class="pokemon-type-id">
+                    <span class="pokemon-hp" id="crd_plyr_stats_1">120</span>
+                    <img class="pokemon-type"  id="crd_plyr_type_1"></img>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="carta_player pokemon-card card-pok" id="crd_plyr_bg_3">
-              <div class="face front">
-                <div class="pokemon-name-hp">
-                  <span class="pokemon-name" id="crd_plyr_name_3"
-                    >Charizard</span
-                  >
-                  <span class="pokemon-id" id="crd_plyr_id_3">8</span>
+              <div
+                class="carta_player pokemon-card card-pok"
+                id="crd_plyr_bg_2"
+              >
+                <div class="face front">
+                  <div class="pokemon-name-hp">
+                    <span class="pokemon-name" id="crd_plyr_name_2"
+                      >Charizard</span
+                    >
+                    <span class="pokemon-id" id="crd_plyr_id_2">8</span>
+                  </div>
+                  <div class="imageContainer">
+                    <img id="crd_plyr_img_2" style="width: 120px" />
+                  </div>
+                  <div class="pokemon-type-id">
+                    <span class="pokemon-hp" id="crd_plyr_stats_2">120</span>
+                    <img class="pokemon-type"  id="crd_plyr_type_2"></img>
+                  </div>
                 </div>
-                <div class="imageContainer">
-                  <img
-                    id="crd_plyr_img_3"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-                    style="width: 120px"
-                  />
-                </div>
-                <div class="pokemon-type-id">
-                  <span class="pokemon-hp" id="crd_plyr_stats_3">120</span>
-                  <span class="pokemon-type" id="crd_plyr_type_3">Fire</span>
+              </div>
+
+              <div
+                class="carta_player pokemon-card card-pok"
+                id="crd_plyr_bg_3"
+              >
+                <div class="face front">
+                  <div class="pokemon-name-hp">
+                    <span class="pokemon-name" id="crd_plyr_name_3"
+                      >Charizard</span
+                    >
+                    <span class="pokemon-id" id="crd_plyr_id_3">8</span>
+                  </div>
+                  <div class="imageContainer">
+                    <img
+                      id="crd_plyr_img_3"
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+                      style="width: 120px"
+                    />
+                  </div>
+                  <div class="pokemon-type-id">
+                    <span class="pokemon-hp" id="crd_plyr_stats_3">120</span>
+                    <img class="pokemon-type"  id="crd_plyr_type_3"></img>
+                  </div>
                 </div>
               </div>
             </div>
@@ -259,3 +274,5 @@
     ></script>
   </body>
 </html>
+
+

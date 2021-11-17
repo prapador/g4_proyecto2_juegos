@@ -21,6 +21,14 @@ class Pokemon {
   getImg() {
     return this.img;
   }
+  getShortName() {
+    let string = this.name;
+    if (string.length > 10) {
+      return string.substring(0, 9);
+    } else {
+      return this.name;
+    }
+  }
 }
 
 class Player {
@@ -249,43 +257,48 @@ function gradientBackgroundGenerator(type) {
   }
 }
 
+function typeGenerator(type){
+  let type_url = `./assets/img/pokemon/poke_tipe_${type}_round.png`;
+  return type_url;
+}
+
 function asignarPlayerCards() {
   crd_plyr_id_1.innerHTML = `${pokemons_player[0].getId()}`;
-  crd_plyr_name_1.innerHTML = `${pokemons_player[0].getName()}`;
+  crd_plyr_name_1.innerHTML = `${pokemons_player[0].getShortName()}`;
   crd_plyr_stats_1.innerHTML = `${pokemons_player[0].getStats()}`;
   crd_plyr_img_1.src = `${pokemons_player[0].getImg()}`;
-  crd_plyr_type_1.innerHTML = `${pokemons_player[0].getType()}`;
+  crd_plyr_type_1.src = `${typeGenerator(pokemons_player[0].getType())}`;
   crd_plyr_bg_1.style.background = gradientBackgroundGenerator(
     pokemons_player[0].getType()
   );
 
   crd_plyr_id_2.innerHTML = `${pokemons_player[1].getId()}`;
-  crd_plyr_name_2.innerHTML = `${pokemons_player[1].getName()}`;
+  crd_plyr_name_2.innerHTML = `${pokemons_player[1].getShortName()}`;
   crd_plyr_stats_2.innerHTML = `${pokemons_player[1].getStats()}`;
   crd_plyr_img_2.src = `${pokemons_player[1].getImg()}`;
-  crd_plyr_type_2.innerHTML = `${pokemons_player[1].getType()}`;
+  crd_plyr_type_2.src = `${typeGenerator(pokemons_player[1].getType())}`;
   crd_plyr_bg_2.style.background = gradientBackgroundGenerator(
     pokemons_player[1].getType()
   );
 
   crd_plyr_id_3.innerHTML = `${pokemons_player[2].getId()}`;
-  crd_plyr_name_3.innerHTML = `${pokemons_player[2].getName()}`;
+  crd_plyr_name_3.innerHTML = `${pokemons_player[2].getShortName()}`;
   crd_plyr_stats_3.innerHTML = `${pokemons_player[2].getStats()}`;
   crd_plyr_img_3.src = `${pokemons_player[2].getImg()}`;
-  crd_plyr_type_3.innerHTML = `${pokemons_player[2].getType()}`;
+  crd_plyr_type_3.src = `${typeGenerator(pokemons_player[2].getType())}`;
   crd_plyr_bg_3.style.background = gradientBackgroundGenerator(
     pokemons_player[2].getType()
   );
 }
 
 function asignarBattleCards(index) {
-  crd_fight_bg_1.classList.remove("invisible");
-  crd_fight_bg_1.classList.add("animate__animated","animate__rotateIn","animate__slower");
-  setTimeout(function tick() {
-    crd_fight_bg_1.classList.remove("animate__animated","animate__rotateIn","animate__slower");
+  crd_fight_bg_1.classList.remove("invisible","animate__animated", "animate__hinge", "animate__slower", "d-none"); 
+  crd_fight_bg_1.classList.add("animate__animated", "animate__rotateIn", "animate__slower");
+  setTimeout(function() {
+    crd_fight_bg_1.classList.remove("animate__animated", "animate__rotateIn", "animate__slower");
   }, 3000);
   crd_fight_id_1.innerHTML = `${pokemons_player[index].getId()}`;
-  crd_fight_name_1.innerHTML = `${pokemons_player[index].getName()}`;
+  crd_fight_name_1.innerHTML = `${pokemons_player[index].getShortName()}`;
   crd_fight_stats_1.innerHTML = `${pokemons_player[index].getStats()}`;
   crd_fight_img_1.src = `${pokemons_player[index].getImg()}`;
   crd_fight_type_1.innerHTML = `${pokemons_player[index].getType()}`;
@@ -293,12 +306,13 @@ function asignarBattleCards(index) {
     pokemons_player[index].getType()
   );
 
-  crd_fight_bg_2.classList.remove("invisible");
-  crd_fight_bg_2.classList.add("animate__animated","animate__rotateIn","animate__slower");setTimeout(function tick() {
-    crd_fight_bg_2.classList.remove("animate__animated","animate__rotateIn","animate__slower");
+  crd_fight_bg_2.classList.remove("invisible","animate__animated", "animate__hinge", "animate__slower", "d-none");
+  crd_fight_bg_2.classList.add("animate__animated", "animate__rotateIn", "animate__slower");
+  setTimeout(function() {
+    crd_fight_bg_2.classList.remove("animate__animated", "animate__rotateIn", "animate__slower");
   }, 3000);
   crd_fight_id_2.innerHTML = `${pokemons_pc[index].getId()}`;
-  crd_fight_name_2.innerHTML = `${pokemons_pc[index].getName()}`;
+  crd_fight_name_2.innerHTML = `${pokemons_pc[index].getShortName()}`;
   crd_fight_stats_2.innerHTML = `${pokemons_pc[index].getStats()}`;
   crd_fight_img_2.src = `${pokemons_pc[index].getImg()}`;
   crd_fight_type_2.innerHTML = `${pokemons_pc[index].getType()}`;
@@ -451,17 +465,6 @@ function esDebil(a, b) {
   return ret;
 }
 
-function animacionInicial() {
-  //animacion al abrir el juego
-}
-
-function mostrarRound() {
-  //animacion al abrir el juego
-}
-
-function userScreen() {
-  //mostrar pantalla de usuario
-}
 let array_indices = [1, 2, 3];
 
 function removeRandomPcCard() {
@@ -469,20 +472,20 @@ function removeRandomPcCard() {
   indice_a_cargarse--;
   if (array_indices[indice_a_cargarse] == 1) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_1.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_pc_1.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_pc_1.classList.add("d-none");
     }, 2000);
   } else if (array_indices[indice_a_cargarse] == 2) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_2.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_pc_2.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_pc_2.classList.add("d-none");
     }, 2000);
   } else if (array_indices[indice_a_cargarse] == 3) {
     array_indices.splice(indice_a_cargarse, 1);
-    crd_pc_3.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_pc_3.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_pc_3.classList.add("d-none");
     }, 2000);
   }
@@ -490,24 +493,24 @@ function removeRandomPcCard() {
 
 function invocarCarta(index) {
   if (index == 0) {
-    crd_plyr_bg_1.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_plyr_bg_1.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_plyr_bg_1.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 1) {
-    crd_plyr_bg_2.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_plyr_bg_2.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_plyr_bg_2.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
     asignarBattleCards(index);
   }
   if (index == 2) {
-    crd_plyr_bg_3.classList.add("animate__animated","animate__rotateOut","animate__slower");
-    setTimeout(function tick() {
+    crd_plyr_bg_3.classList.add("animate__animated", "animate__rotateOut", "animate__slower");
+    setTimeout(function() {
       crd_plyr_bg_3.classList.add("d-none");
     }, 2000);
     removeRandomPcCard();
@@ -525,9 +528,25 @@ function scoreScreen() {
   temp_player_wins = 0;
   temp_player_wins = 0;
   console.log(players);
+  
+  showResults();
 }
 
-function animarGanador() {}
+function animarGanador(ganador) {
+  if (ganador == "player") {
+    crd_fight_bg_1.classList.add("animate__animated", "animate__hinge", "animate__slower");
+    setTimeout(function() {
+      crd_fight_bg_1.classList.add("d-none");
+    }, 2000);
+
+  }
+  if (ganador == "pc") {
+    crd_fight_bg_2.classList.add("animate__animated", "animate__hinge", "animate__slower");
+    setTimeout(function() {
+      crd_fight_bg_2.classList.add("d-none");
+    }, 2000);
+  }
+}
 
 function duelo(card, turno) {
   turno++;
@@ -535,7 +554,7 @@ function duelo(card, turno) {
     crd_plyr_bg_1.onclick = function () {};
     crd_plyr_bg_2.onclick = function () {};
     crd_plyr_bg_3.onclick = function () {};
-    setTimeout(function tick() {
+    setTimeout(function() {
       battleOn();
     }, 3100);
     let ganador = combatirPokemons(card);
@@ -560,14 +579,14 @@ function duelo(card, turno) {
       );
     }
     let timerId = new Promise((resolve) => {
-      setTimeout(function tick() {
+      setTimeout(function() {
         generarBattleField(turno);
         resolve("duelo terminado");
-      }, 3000);
+      }, 9000);
     });
-    timerId.then(() => {
+    setTimeout(function() {
       animarGanador(ganador);
-    });
+    }, 6000);
   });
 }
 
@@ -575,9 +594,14 @@ async function generarBattleField(turno) {
   //animar la entrada al batlefiled
   return (el_pepe = new Promise((resolve) => {
     let clickeable = true;
-    mostrarRound(turno);
     crd_plyr_bg_1.onclick = async function () {
       if (clickeable && turno < 4) {
+        let seg = 0;
+        //setInterval(function() {
+        //  seg++;
+        //  console.log(seg)
+        //}, 1000);
+        console.log()
         clickeable = false;
         invocarCarta(0);
         await duelo(0, turno);
@@ -626,7 +650,6 @@ const inputNameUI = document.getElementById("input_name");
 const battlefieldUI = document.getElementById("battlefield");
 const cardFight1 = document.getElementById("crd_fight_bg_1");
 const cardFight2 = document.getElementById("crd_fight_bg_2");
-const triggerBattle = document.getElementById("triggerBattle");
 const throwCard = document.getElementById("triggerthrow");
 
 // SCREEN- 3
@@ -648,11 +671,6 @@ function showResults() {
   battlefieldUI.classList.add("d-none");
   results.classList.remove("d-none");
 }
-
-triggerBattle.addEventListener("click", (e) => {
-  e.preventDefault();
-  battleOn();
-});
 
 async function battleOn() {
   let promesa1 = new Promise((resolve) => {
@@ -682,89 +700,91 @@ async function battleOn() {
     });
   });
 }
-/*************************************** */
 
 async function secuenciaDeAcontecimientos() {
-  // animacionInicial();
   hacerBattleCardsInvisibles();
   submitButtonUI.addEventListener("click", (e) => {
     e.preventDefault();
     temp_user_name = inputNameUI.value;
     headerUI.classList.add("animate__animated", "animate__fadeOut", "slow");
-  
     setTimeout(() => {
       showField();
     }, 2000);
   });
-  // userScreen();
-  //showField();
   await generarPokemons();
   /************* DESPUES DE FETCH ***************/
   asignarPlayerCards();
-
-  //meter usuario
-
   generarBattleField(1);
 }
 
 secuenciaDeAcontecimientos();
 
-/************LOGICA*************/
-/*
-welcome to pokemon developed by
-
-USER SCREEN
-user screen
--pedir user
--guardar el nombre
-
-COMBATIR
-
-cargar datos
-animacion pequeña
 
 
-R1
-correr un pequeño time
-anim start round
-sacar carta y llevar al medio junto a la de pc
-pelea con animacion cool 
-resultado de pelea
-actualizar contadores V y D
 
-R2
-correr un pequeño time
-anim start round
-sacar carta y llevar al medio junto a la de pc
-pelea con animacion cool 
-resultado de pelea
-actualizar contadores V y D
+// TABLA DE RESULTADOS
+function showResults() {
+  // TRANSICION TABLA
+  battlefieldUI.classList.remove(
+    "animate__animated",
+    "animate__fadeIn",
+    "animate_slow",
+    "slow"
+  );
 
-R3
-correr un pequeño time
-anim start round
-sacar carta y llevar al medio junto a la de pc
-pelea con animacion cool 
-resultado de pelea
-actualizar contadores V y D
+  let promesa1 = new Promise((resolve) => {
+    setTimeout(() => {
+      battlefieldUI.classList.add(
+        "animate__animated",
+        "animate__fadeOut",
+      );
+      resolve()
+    }, 100);
+  })
+  promesa1.then(() => {
+    let promesa2 = new Promise((resolve) => {
+      setTimeout(() => {
+        battlefieldUI.classList.add(
+          "animate__animated",
+          "animate__fadeOut",
+          "animate_slow"
+        );
+        resolve("resuelto");
+      }, 2000);
+    });
+    promesa2.then(() => {
+      battlefieldUI.classList.add("d-none");
+      results.classList.remove("d-none");
+      results.classList.add("animate__animated", "animate__fadeIn", "animate_slower");
+    });
+  })
 
-dejar correr un tiempo
+// CREA TABLA
+  let allItems = [];
+  for (item in players) {
+    const name = document.createElement("h3");
+    name.textContent = players[item].name;
 
-mostrar player X wins : pc Y wins
-player o pc wins
-add plyaer con 1,0 o 0,1
-oedenar lista por victorias
+    const wins = document.createElement("p");
+    wins.classList.add('tabla-victoria')
+    wins.textContent = players[item].wins;
 
-END SCREEN
-listar players
-volver a jugar --> call combatir
-cambiar player --> call user Screen
-salir -- > call juegos
 
-*/
+    const loses = document.createElement("p");
+    loses.classList.add('tabla-derrota')
+    loses.textContent =  players[item].loses;
 
-/* ----------------------------------------- */
-/* UI */
-/* ------------------------------------------*/
-// SCREEN-1
+    const container = document.createElement("div");
+    container.classList.add("alert", 'bg-red-table');
+    container.append(name, wins, loses);
 
+    allItems.push(container);
+  }
+  results.append(...allItems);
+}
+
+
+// ORDENA PLAYERS POR WINS
+players.sort((a, b) => {
+  return b.wins - a.wins;
+});
