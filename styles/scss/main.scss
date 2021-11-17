@@ -194,7 +194,6 @@
 
 .pokemon-card {
   max-width         : 165px;
-  margin-right      : 90px;
   padding           : 15px 15px 0 15px;
   border            : 8px solid #f9ee75;
   border-radius     : 15px;
@@ -206,7 +205,6 @@
   
 .card-back {
   max-width         : 165px;
-  margin-right      : 90px;
   padding           : 15px 15px 0 15px;
   border            : 8px solid #0f1b5d;
   border-radius     : 15px;
@@ -275,4 +273,22 @@
   background-image : url("../../assets/img/battlefield.jpg");
   background-repeat: no-repeat;
   background-size  : cover;
+  height: 1067px;
+  width: 880px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------- */
+/* TAMAÑO DIVS */
+/* ------------------------------------------*/
+.computer-field {
+  height: 355px;
+}
+
+.battle-cards {
+  height: 355px;
+}
+
+.user-field {
+  height: 355px;
 }
