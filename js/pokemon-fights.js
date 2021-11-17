@@ -858,8 +858,10 @@ triggerTableUI.addEventListener("click", (e) => {
 /* ----------------------------------------- */
 /* BOTONES TABLA */
 /* ------------------------------------------*/
-btnVolverJugar = document.getElementById("volver-jugar");
+let btnVolverJugar = document.getElementById("volver-jugar");
 let volverJugar = false;
+
+let btnCambiarUser = document.getElementById("cambiar-usuario");
 // volver a jugar
 btnVolverJugar.addEventListener("click", (e) => {
   e.preventDefault();
@@ -867,6 +869,14 @@ btnVolverJugar.addEventListener("click", (e) => {
   localStorage.setItem("lastPlayer", lastPlayer);
   window.location.href = "./";
 });
+
+
+// Cambiar Usuario
+btnCambiarUser.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.removeItem("lastPlayer");
+  window.location.href = "./";
+})
 
 window.onload = function () {
   if (localStorage.getItem("lastPlayer") != null) {
