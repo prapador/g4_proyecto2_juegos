@@ -65,6 +65,7 @@ let pokeballs_player = 0;
 let pokeballs_pc = 0;
 let array_indices = [1, 2, 3];
 let round_number = 2;
+winner_loser.classList.add("invisible");
 
 /******************ATRIBUCION******************/
 let crd_plyr_id_1 = document.getElementById("crd_plyr_id_1");
@@ -117,6 +118,7 @@ let pkbl_plyr_3 = document.getElementById("pkbl_player_3");
 let btn_user_submit = document.getElementById("elpepe");
 let div_cards_pc = document.getElementById("div_cards_pc");
 let round = document.getElementById("round");
+let winner_loser = document.getElementById("winner_loser");
 
 /********COLORES*********/
 const elementColors = {
@@ -677,8 +679,18 @@ async function generarBattleField(turno) {
       }
     };
     if (turno == 4) {
-      scoreScreen();
-      resolve();
+      if(temp_player_wins > temp_player_losses){
+        winner_loser.classList.add("bg-winner");
+      }
+      if(temp_player_wins > temp_player_losses){
+        winner_loser.classList.add("bg-loser");
+      }
+      winner_loser.classList.remove("invisible");
+      winner_loser.classList.add("animate__animated", "animate__fadeIn", "animate__slower")
+      setTimeout(() =>{
+        scoreScreen();
+        resolve();
+      },4000);
     }
   }));
 }

@@ -19,6 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 2px 1px black;
 }
 
 .header-bg {
@@ -330,6 +331,7 @@ h1 {
 .bg-red-table {
   background: $bg-red-secondary;
   color: $text-primary;
+
   h3 {
     color: $text-amarillo;
   }
@@ -354,6 +356,7 @@ h1 {
   background: #dd082f;
   color: #f1f1f1;
 }
+
 .bg-red-table h3 {
   color: #ffcb05;
 }
@@ -363,22 +366,33 @@ h1 {
 }
 
 .table-container {
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-shadow: 1px 2px 1px black;
 }
 
 .table {
-  background: $bg-red-secondary;
-  border-radius: 13px;
+  backdrop-filter: blur(5px);
+  color: white !important;
   border-spacing: 0;
-  border: white;
+  border: 3px solid white;
   text-align: center;
 }
+
+.table-fondo {
+  height: 907px;
+  width: 880px;
+  background: url(../../assets/img/pokemon/bg_scoreboard.jpg);
+}
+
 
 table th {
   padding: 10px;
 }
 
-table tr:last-child > td {
+table tr:last-child>td {
   border-bottom: none;
 }
 
@@ -392,13 +406,14 @@ tr:last-child {
 
 thead {
   border: white;
-  color: rgb(219, 219, 219);
+  color: white;
+  font-size: 1.4em;
 }
 
 #userResults {
   font-weight: 400;
-  color      : $text-primary;
-  font-size:22px;
+  color: $text-primary;
+  font-size: 22px;
 }
 
 a.btn-submit {
@@ -417,6 +432,11 @@ a.btn-submit {
   text-align: center;
   padding-top: 8px;
   text-decoration: none;
+  text-shadow: none;
+}
+
+.text-center {
+  margin-bottom: 5px;
 }
 
 a.btn-submit:hover {
@@ -427,6 +447,17 @@ a.btn-submit:hover {
 
 .bg-red-table h3 {
   color: #FFCB05;
+}
+
+.buttons {
+  text-shadow: none;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.buttons input,
+.buttons a {
+  width: 170px !important;
 }
 
 /* ----------------------------------------- */
@@ -446,6 +477,26 @@ a.btn-submit:hover {
 
 .scorers2 {
   position: absolute;
+}
+
+.winner_loser{
+  position: absolute;
+  
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 600px;
+  top: 37%;
+  left: 15%;
+}
+
+.bg-winner{
+  background: url(../../assets/img/pokemon/u_win.png);
+}
+
+.bg-loser {
+  background: url(../../assets/img/pokemon/u_lost.png);
 }
 
 .pokeball {
@@ -499,4 +550,4 @@ a.btn-submit:hover {
   background: url(../../assets/img/pokemon/round_3.png);
   background-size: cover;
   background-repeat: no-repeat;
-} 
+}
