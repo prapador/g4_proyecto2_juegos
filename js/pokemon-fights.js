@@ -840,12 +840,12 @@ players.sort((a, b) => {
   return b.wins - a.wins;
 });
 
-const triggerTableUI = document.getElementById("trigger-table");
+// const triggerTableUI = document.getElementById("trigger-table");
 
-triggerTableUI.addEventListener("click", (e) => {
-  e.preventDefault();
-  showResults();
-});
+// triggerTableUI.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   showResults();
+// });
 
 /* ----------------------------------------- */
 /* BOTONES TABLA */
