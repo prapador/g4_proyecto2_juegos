@@ -1,3 +1,5 @@
+
+
 class Pokemon {
   constructor(id, name, type, stats, img) {
     this.id = id;
@@ -10,7 +12,7 @@ class Pokemon {
     return this.id;
   }
   getName() {
-    return this.name;
+    return this.name.replace(/\s+/g, '');
   }
   getType() {
     return this.type;
@@ -194,6 +196,7 @@ function randomNumber(min, max) {
 }
 
 function addPlayer(n, w, l) {
+  console.log(players);
   let_int_w = parseInt(w);
   let_int_l = parseInt(l);
   let existente = false;
@@ -878,7 +881,7 @@ function showResults() {
         userResultsUI.innerHTML = `Victorias: ${players[i].getWins()} - Derrotas: ${players[i].getLoses()}`;
         lastPlayer = temp_user_name;
       }
-      if(i<=9){
+      if(i<=8){
         const name = document.createElement("th");
         name.textContent = players[i].getName();
         
