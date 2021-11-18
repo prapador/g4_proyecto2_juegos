@@ -401,19 +401,23 @@ a.btn-submit:hover {
 
 .winner_loser {
   position: absolute;
+  height: 200px;
+  width: 800px;
+  background-size: contain;
+  top: 37%;
+  left: 4%; }
+
+.bgwinner {
+  background: url(../../assets/img/pokemon/u_win.png);
   background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
-  height: 200px;
-  width: 600px;
-  top: 37%;
-  left: 15%; }
+  background-repeat: no-repeat; }
 
-.bg-winner {
-  background: url(../../assets/img/pokemon/u_win.png); }
-
-.bg-loser {
-  background: url(../../assets/img/pokemon/u_lost.png); }
+.bgloser {
+  background: url(../../assets/img/pokemon/u_lost.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat; }
 
 .pokeball {
   height: 64px;
@@ -446,11 +450,15 @@ a.btn-submit:hover {
   height: 100px;
   width: 100px;
   position: absolute;
-  background: url(../../assets/img/pokemon/round_1.png);
   background-size: cover;
   background-repeat: no-repeat;
   right: 0%;
   top: 43%; }
+
+.turno-1 {
+  background: url(../../assets/img/pokemon/round_1.png);
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .turno-2 {
   background: url(../../assets/img/pokemon/round_2.png);

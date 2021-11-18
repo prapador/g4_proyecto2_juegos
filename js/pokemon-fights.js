@@ -64,8 +64,7 @@ let temp_player_losses = 0;
 let pokeballs_player = 0;
 let pokeballs_pc = 0;
 let array_indices = [1, 2, 3];
-let round_number = 2;
-winner_loser.classList.add("invisible");
+let round_number = 1;
 
 /******************ATRIBUCION******************/
 let crd_plyr_id_1 = document.getElementById("crd_plyr_id_1");
@@ -119,6 +118,9 @@ let btn_user_submit = document.getElementById("elpepe");
 let div_cards_pc = document.getElementById("div_cards_pc");
 let round = document.getElementById("round");
 let winner_loser = document.getElementById("winner_loser");
+
+
+winner_loser.classList.add("invisible");
 
 /********COLORES*********/
 const elementColors = {
@@ -547,38 +549,54 @@ function scoreScreen() {
 
 function actualizarTurno(){
   round.classList.add(`turno-${round_number}`);
+  round.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
   round_number++;
 }
 
 function agregarPokeball(ganador) {
-  actualizarTurno();
   if (ganador == "player") {
     switch (pokeballs_player) {
       case 0:
+        console.log(pokeballs_player);
         pkbl_plyr_1.classList.remove("invisible");
+        pkbl_plyr_1.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_player++;
         break;
       case 1:
+        console.log(pokeballs_player);
         pkbl_plyr_2.classList.remove("invisible");
-        break;
+        pkbl_plyr_2.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_player++;
+      break;
       case 2:
+        console.log(pokeballs_player);
         pkbl_plyr_3.classList.remove("invisible");
-        break;
+        pkbl_plyr_3.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_player++;
+      break;
     }
-    pokeballs_player++;
   }
   if (ganador == "pc") {
     switch (pokeballs_pc) {
       case 0:
+        console.log(pokeballs_pc);
         pkbl_pc_1.classList.remove("invisible");
+        pkbl_pc_1.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_pc++;
         break;
       case 1:
+        console.log(pokeballs_pc);
         pkbl_pc_2.classList.remove("invisible");
+        pkbl_pc_2.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_pc++;
         break;
       case 2:
+        console.log(pokeballs_pc);
         pkbl_pc_3.classList.remove("invisible");
+        pkbl_pc_3.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
+        pokeballs_pc++;
         break;
     }
-    pokeballs_pc++;
   }
 }
 
@@ -607,6 +625,7 @@ function duelo(card, turno) {
     crd_plyr_bg_3.onclick = function () {};
     setTimeout(function () {
       battleOn();
+      round.classList.remove("animate__animated", "animate__fadeIn", "animate__slower");
     }, 3100);
     let ganador = combatirPokemons(card);
     if (ganador == "player") {
@@ -655,6 +674,7 @@ async function generarBattleField(turno) {
         console.log();
         clickeable = false;
         invocarCarta(0);
+        actualizarTurno();
         await duelo(0, turno);
         mostrarRound(turno);
         clickeable = true;
@@ -664,6 +684,7 @@ async function generarBattleField(turno) {
       if (clickeable && turno < 4) {
         clickeable = false;
         invocarCarta(1);
+        actualizarTurno();
         await duelo(1, turno);
         mostrarRound(turno);
         clickeable = true;
@@ -673,20 +694,23 @@ async function generarBattleField(turno) {
       if (clickeable && turno < 4) {
         clickeable = false;
         invocarCarta(2);
+        actualizarTurno();
         await duelo(2, turno);
         mostrarRound(turno);
         clickeable = true;
       }
     };
     if (turno == 4) {
-      if(temp_player_wins > temp_player_losses){
-        winner_loser.classList.add("bg-winner");
+      console.log(temp_player_wins,temp_player_losses);
+      if(temp_player_wins > temp_player_losses){        
+        winner_loser.classList.remove("invisible");
+        winner_loser.classList.add("bgwinner");
       }
-      if(temp_player_wins > temp_player_losses){
-        winner_loser.classList.add("bg-loser");
+      if(temp_player_wins < temp_player_losses){       
+        winner_loser.classList.remove("invisible");
+        winner_loser.classList.add("bgloser");
       }
-      winner_loser.classList.remove("invisible");
-      winner_loser.classList.add("animate__animated", "animate__fadeIn", "animate__slower")
+      winner_loser.classList.add("animate__animated", "animate__fadeIn");
       setTimeout(() =>{
         scoreScreen();
         resolve();
@@ -769,6 +793,7 @@ async function secuenciaDeAcontecimientos() {
   await generarPokemons();
   /************* DESPUES DE FETCH ***************/
   asignarPlayerCards();
+  round.classList.add("animate__animated", "animate__fadeIn", "animate__slower");
   generarBattleField(1);
 }
 
@@ -822,28 +847,58 @@ function showResults() {
   // CREA TABLA
   let allItems = [];
   resultadosUI.innerHTML = `${temp_user_name}: `;
-  for (item in players) {
-    if (players[item].name == temp_user_name) {
-      userResultsUI.innerHTML = `Victorias: ${players[item].wins} - Derrotas: ${players[item].loses}`;
-      lastPlayer = temp_user_name;
+
+  if(players.length <= 9){
+
+    for (item in players) {
+      if (players[item].name == temp_user_name) {
+        userResultsUI.innerHTML = `Victorias: ${players[item].wins} - Derrotas: ${players[item].loses}`;
+        lastPlayer = temp_user_name;
+      }
+      const name = document.createElement("th");
+      name.textContent = players[item].name;
+  
+      const wins = document.createElement("th");
+      wins.classList.add("tabla-victoria");
+      wins.textContent = players[item].wins;
+  
+      const loses = document.createElement("th");
+      loses.classList.add("tabla-derrota");
+      loses.textContent = players[item].loses;
+  
+      const container = document.createElement("tr");
+      // container.classList.add("alert", 'bg-red-table');
+      container.append(name, wins, loses);
+  
+      allItems.push(container);
     }
-    const name = document.createElement("th");
-    name.textContent = players[item].name;
-
-    const wins = document.createElement("th");
-    wins.classList.add("tabla-victoria");
-    wins.textContent = players[item].wins;
-
-    const loses = document.createElement("th");
-    loses.classList.add("tabla-derrota");
-    loses.textContent = players[item].loses;
-
-    const container = document.createElement("tr");
-    // container.classList.add("alert", 'bg-red-table');
-    container.append(name, wins, loses);
-
-    allItems.push(container);
+  }else if(players.length > 9){
+    for (let i = 0; i < players.length; i++){
+      if (players[i].getName() == temp_user_name) {
+        userResultsUI.innerHTML = `Victorias: ${players[i].getWins()} - Derrotas: ${players[i].getLoses()}`;
+        lastPlayer = temp_user_name;
+      }
+      if(i<=9){
+        const name = document.createElement("th");
+        name.textContent = players[i].getName();
+        
+        const wins = document.createElement("th");
+        wins.classList.add("tabla-victoria");
+        wins.textContent = players[i].getWins();
+    
+        const loses = document.createElement("th");
+        loses.classList.add("tabla-derrota");
+        loses.textContent = players[i].getLoses();
+    
+        const container = document.createElement("tr");
+        // container.classList.add("alert", 'bg-red-table');
+        container.append(name, wins, loses);
+    
+        allItems.push(container);
+      }
+    }
   }
+  
   results.append(...allItems);
 }
 
